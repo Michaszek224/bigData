@@ -2,27 +2,31 @@
 import sys
 
 current_key = None
-total_sum = 0
-total_count = 0
+count_sum = 0
+total_sum = 0.0
 
 for line in sys.stdin:
-    restaurant_id, payment_type, partial_sum, partial_count = line.strip().split("\t")
-    key = f"{restaurant_id}\t{payment_type}"
-    partial_sum = float(partial_sum)
-    partial_count = int(partial_count)
-
-    if current_key == key:
-        total_sum += partial_sum
-        total_count += partial_count
+    parts = line.strip().split("\t")
+    if len(parts) != 3:
+        continue
+        
+    composite_key, total, count = parts
+    count = int(count)
+    total = float(total)
+    
+    if current_key == composite_key:
+        count_sum += count
+        total_sum += total
     else:
         if current_key:
-            avg = total_sum / total_count
-            print(f"{current_key}\t{total_count}\t{avg:.2f}")
-        current_key = key
-        total_sum = partial_sum
-        total_count = partial_count
+            restaurant_id, payment_type = current_key.split("|", 1)
+            avg = total_sum / count_sum if count_sum > 0 else 0
+            print(f"{restaurant_id}\t{payment_type}\t{count_sum}\t{avg:.2f}")
+        current_key = composite_key
+        count_sum = count
+        total_sum = total
 
 if current_key:
-    avg = total_sum / total_count
-    print(f"{current_key}\t{total_count}\t{avg:.2f}")
-
+    restaurant_id, payment_type = current_key.split("|", 1)
+    avg = total_sum / count_sum if count_sum > 0 else 0
+    print(f"{restaurant_id}\t{payment_type}\t{count_sum}\t{avg:.2f}")

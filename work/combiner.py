@@ -2,23 +2,27 @@
 import sys
 
 current_key = None
-total_sum = 0
+total_sum = 0.0
 total_count = 0
 
 for line in sys.stdin:
-    restaurant_id, payment_type, total_price = line.strip().split("\t")
-    key = f"{restaurant_id}\t{payment_type}"
+    parts = line.strip().split("\t")
+    if len(parts) != 3:
+        continue
+    
+    composite_key, total_price, count = parts
     total_price = float(total_price)
-
-    if current_key == key:
+    count = int(count)
+    
+    if current_key == composite_key:
         total_sum += total_price
-        total_count += 1
+        total_count += count
     else:
         if current_key:
             print(f"{current_key}\t{total_sum}\t{total_count}")
-        current_key = key
+        current_key = composite_key
         total_sum = total_price
-        total_count = 1
+        total_count = count
 
 if current_key:
     print(f"{current_key}\t{total_sum}\t{total_count}")
