@@ -1,101 +1,3 @@
-ls
-ls
-cd notebooks/
-ls
-nvim pyspark.ipynb 
-vim pyspark.ipynb 
-vi pyspark.ipynb 
-cd ~
-ls
-wget https://www.cs.put.poznan.pl/kjankiewicz/bigdata/projekty/zestaw15.zip
-ls
-unzip zestaw15.zip 
-rm zestaw15.zip 
-ls
-cd input/
-ls
-exit
-hdfs getconf -confKey mapreduce.framework.name
-hdfs getconf -confKey mapreduce.job.reduces
-ls
-hadoop fs -mkdir -p input
-ls
-cd input/
-ls
-ls
-cd datasource
-cd datasource1
-ls
-cd ..
-cd ..
-ls
-hadoop fs -ls -R input/
-rm -r input/
-hadoop fs -mkdir -p input
-ls
-cd notebooks/
-ls
-cd ..
-ls
-cd ..
-ls
-cd ..
-ls
-cd home/
-ls
-cd hadoop/
-ls
-cd ..
-ls
-ls
-cd ..
-ls
-cd ~
-ls
-clear
-hadoop fs -mkdir -p input
-ls
-wget 
-wget https://www.cs.put.poznan.pl/kjankiewicz/bigdata/projekty/zestaw15.zip
-ls
-unzip --help
-unzip zestaw15.zip 
-ls
-rm zestaw15.zip 
-ls
-hadoop fs -put input input/
-hadoop fs -put *.csv input/
-ls
-hadoop fs -ls -R input/
-exit
-ls
-wget https://www.cs.put.poznan.pl/kjankiewicz/bigdata/projekty/zestaw15.zip
-ls
-ls
-ls
-ls
-unzip zestaw15.zip 
-ls
-ls
-mv input/ data
-ls
-cd data/
-ls
-rm -r datasource4
-ls
-cd datasource1/
-ls
-cd ..
-ls
-ls
-hadoop fs -mkdir -p input
-hadoop fs -put datasource1/ input/
-hadoop fs -put *.csv input
-ls
-hadoop fs -l -r input/
-hadoop fs -ls -r input/
-hadoop fs -ls -R input/
-hadoop fs -ls -R input/ | wl-copy
 hadoop fs -rm -r /input
 hadoop fs -rm -r
 hdfs dfs -rm -r /input/*
@@ -301,4 +203,298 @@ hdfs dfs -ls /
 hdfs dfs -ls /output
 hdfs dfs -rm -r /output
 hdfs dfs -ls /
+exit
+hdfs dfs -ls /
+hdfs dfs -ls /datasource3
+hdfs dfs -ls /datasource4
+exit
+hdfs dfs -ls /datasource3
+hdfs dfs -cat /datasource3/part-00000
+hdfs dfs -cat /datasource4/
+hdfs dfs -ls /datasource4/
+hdfs dfs -cat /datasource4/restourants.csv
+hdfs dfs -cat /datasource4/restaurants.csv
+hdfs dfs -cat /datasource4/restaurants.csv | head
+hdfs dfs -ls /datasource3
+hdfs dfs -ls -la /datasource3
+hdfs dfs -lsa /datasource3
+hdfs dfs -ls /datasource3
+hdfs dfs -cat /datasource3/part-00000
+exit
+ls
+chmod +x hive.hql 
+chmod +x run_hive.sh 
+hdfs dfs -ls /
+./run_hive.sh datasource3 datasource4 datasource6
+hdfs dfs -ls /
+./run_hive.sh 
+tree
+ls
+cd ..
+ls
+cd hadoop/
+chmod +x run_hive.sh 
+./run_hive.sh datasource3 datasource4 datasource6
+./run_hive.sh /datasource3 /datasource4 /datasource6
+hdfs fds -ls /
+hdfs dfs -ls /
+./run_hive.sh datasource3 datasource4 datasource6
+./run_mr.sh datasource1 datasource3
+hdfs dfs -ls /
+hdfs dfs -ls /datasource1
+hdfs dfs -ls /datasource3
+hdfs dfs -ls /datasource4
+chmod +x run_hive.sh 
+./run_hive.sh datasource3 datasource4 datasource6
+hdfs dfs -ls /
+hdfs dfs -lsa /
+hdfs dfs -chmod 777 /
+./run_hive.sh datasource3 datasource4 datasource6
+jps
+jps | grep HiveServer2
+sudo systemctl status hive-server2
+  sudo service hive-server2 status
+beeline -u "jdbc:hive2://localhost:10000/default" -e "SHOW DATABASES;"
+chmod +x run_hive.sh 
+./run_hive.sh datasource3 datasource4 datasource6
+chmod +x run_hive.sh 
+./run_hive.sh datasource3 datasource4 datasource6
+hdfs fds -ls /
+hdfs dfs -ls /
+hdfs dfs -ls /datasource6
+./run_hive.sh datasource3 datasource4 datasource6
+beeline -u "jdbc:hive2://localhost:10000/default"   -n hadoop   --hiveconf input_dir3="/datasource3"   --hiveconf input_dir4="/datasource4"   -f /home/hadoop/hive_debug.hql
+rm hive.hql 
+./run_hive.sh datasource3 datasource4 datasource6
+ls
+hdfs fds -ls /
+hdfs dfs -ls /
+hdfs dfs -ls /datasource6
+hdfs dfs -rm -r  /datasource6
+./run_hive.sh datasource3 datasource4 datasource6
+hdfs dfs -ls /datasource6
+hdfs dfs -ls /datasource6
+hdfs dfs -ls /
+# 1. Sprawdź czy skrypt się w ogóle wykonuje
+./run_hive.sh datasource3 datasource4 datasource6 2>&1 | tee hive_run.log
+# 2. Jeśli skrypt się wykonał, sprawdź logi
+tail -50 hive_run.log
+# 3. Sprawdź czy folder datasource6 istnieje (może być pusty)
+hdfs dfs -ls / | grep datasource
+# 4. Sprawdź czy tabela restaurants została utworzona
+beeline -u "jdbc:hive2://localhost:10000/default" -n hadoop -e "
+SHOW TABLES;
+SELECT COUNT(*) FROM restaurants;
+SELECT * FROM restaurants LIMIT 5;
+"
+# 1. Usuń wszystkie tabele i wyczyść metadane
+beeline -u "jdbc:hive2://localhost:10000/default" -n hadoop -e "
+DROP TABLE IF EXISTS restaurants;
+DROP TABLE IF EXISTS restaurants_raw;
+DROP TABLE IF EXISTS datasource3;
+"
+# 2. Upewnij się że używasz nowego skryptu hive.hql
+cat /home/hadoop/hive.hql | grep -A5 "restaurants_raw"
+# 3. Jeśli nie widzisz restaurants_raw, skopiuj nową wersję
+cat /home/hadoop/hive.hql | grep -A5 "restaurants_raw"
+./run_hive.sh datasource3 datasource4 datasource6
+cat > /home/hadoop/hive.hql << 'EOF'
+-- hive.hql
+-- Skrypt Hive łączący dane o zamówieniach z restauracjami
+-- Parametry: input_dir3, input_dir4, output_dir6
+USE default;
+
+-- Usuń poprzednie definicje
+DROP TABLE IF EXISTS datasource3;
+DROP TABLE IF EXISTS restaurants;
+DROP TABLE IF EXISTS restaurants_raw;
+
+-- 1) Dane z MapReduce (input_dir3)
+-- Format: restaurant_id, payment_type, total_orders, avg_total_price
+CREATE EXTERNAL TABLE datasource3 (
+  restaurant_id STRING,
+  payment_type STRING,
+  total_orders INT,
+  avg_total_price DOUBLE
+)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY '\t'
+STORED AS TEXTFILE
+LOCATION '${hiveconf:input_dir3}';
+
+-- 2) Dane surowe z CSV (bez parsowania nagłówka przez SerDe)
+CREATE EXTERNAL TABLE restaurants_raw (
+  line STRING
+)
+STORED AS TEXTFILE
+LOCATION '${hiveconf:input_dir4}';
+
+-- 3) Parsowanie CSV ręcznie i pomijanie nagłówka
+CREATE TABLE restaurants AS
+SELECT
+  split(line, ',')[0] AS restaurant_id,
+  regexp_replace(split(line, ',')[1], '"', '') AS name,
+  regexp_replace(split(line, ',')[2], '"', '') AS city,
+  regexp_replace(split(line, ',')[3], '"', '') AS country,
+  regexp_replace(split(line, ',')[4], '"', '') AS cuisine
+FROM restaurants_raw
+WHERE line NOT LIKE 'restaurant_id,%'  -- Pomiń nagłówek
+  AND length(trim(line)) > 0;          -- Pomiń puste linie
+
+-- 4) Wynik: agregacja po kraju i rodzaju kuchni
+INSERT OVERWRITE DIRECTORY '${hiveconf:output_dir6}'
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY '\t'
+SELECT
+  concat(
+    '{"country":"',   nvl(country,''), '",',
+    '"cuisine":"',    nvl(cuisine,''), '",',
+    '"total_orders":', cast(total_orders as string), ',',
+    '"avg_total_price":', cast(avg_total_price as string), ',',
+    '"rank_in_country":', cast(rank_in_country as string),
+    '}'
+  ) AS json_record
+FROM (
+  WITH joined AS (
+    SELECT
+      r.country,
+      r.cuisine,
+      s.total_orders,
+      s.avg_total_price
+    FROM datasource3 s
+    JOIN restaurants r
+      ON s.restaurant_id = r.restaurant_id
+  ),
+  agg AS (
+    SELECT
+      country,
+      cuisine,
+      SUM(total_orders) AS total_orders,
+      ROUND(SUM(total_orders * avg_total_price) / SUM(total_orders), 2) AS avg_total_price
+    FROM joined
+    GROUP BY country, cuisine
+  ),
+  ranked AS (
+    SELECT
+      country,
+      cuisine,
+      total_orders,
+      avg_total_price,
+      ROW_NUMBER() OVER (PARTITION BY country ORDER BY total_orders DESC) AS rank_in_country
+    FROM agg
+  )
+  SELECT country, cuisine, total_orders, avg_total_price, rank_in_country
+  FROM ranked
+) t
+ORDER BY country, rank_in_country;
+EOF
+
+cat > /home/hadoop/hive.hql << 'EOF'
+-- hive.hql
+-- Skrypt Hive łączący dane o zamówieniach z restauracjami
+-- Parametry: input_dir3, input_dir4, output_dir6
+USE default;
+
+-- Usuń poprzednie definicje
+DROP TABLE IF EXISTS datasource3;
+DROP TABLE IF EXISTS restaurants;
+DROP TABLE IF EXISTS restaurants_raw;
+
+-- 1) Dane z MapReduce (input_dir3)
+-- Format: restaurant_id, payment_type, total_orders, avg_total_price
+CREATE EXTERNAL TABLE datasource3 (
+  restaurant_id STRING,
+  payment_type STRING,
+  total_orders INT,
+  avg_total_price DOUBLE
+)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY '\t'
+STORED AS TEXTFILE
+LOCATION '${hiveconf:input_dir3}';
+
+-- 2) Dane surowe z CSV (bez parsowania nagłówka przez SerDe)
+CREATE EXTERNAL TABLE restaurants_raw (
+  line STRING
+)
+STORED AS TEXTFILE
+LOCATION '${hiveconf:input_dir4}';
+
+-- 3) Parsowanie CSV ręcznie i pomijanie nagłówka
+CREATE TABLE restaurants AS
+SELECT
+  split(line, ',')[0] AS restaurant_id,
+  regexp_replace(split(line, ',')[1], '"', '') AS name,
+  regexp_replace(split(line, ',')[2], '"', '') AS city,
+  regexp_replace(split(line, ',')[3], '"', '') AS country,
+  regexp_replace(split(line, ',')[4], '"', '') AS cuisine
+FROM restaurants_raw
+WHERE line NOT LIKE 'restaurant_id,%'  -- Pomiń nagłówek
+  AND length(trim(line)) > 0;          -- Pomiń puste linie
+
+-- 4) Wynik: agregacja po kraju i rodzaju kuchni
+INSERT OVERWRITE DIRECTORY '${hiveconf:output_dir6}'
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY '\t'
+SELECT
+  concat(
+    '{"country":"',   nvl(country,''), '",',
+    '"cuisine":"',    nvl(cuisine,''), '",',
+    '"total_orders":', cast(total_orders as string), ',',
+    '"avg_total_price":', cast(avg_total_price as string), ',',
+    '"rank_in_country":', cast(rank_in_country as string),
+    '}'
+  ) AS json_record
+FROM (
+  WITH joined AS (
+    SELECT
+      r.country,
+      r.cuisine,
+      s.total_orders,
+      s.avg_total_price
+    FROM datasource3 s
+    JOIN restaurants r
+      ON s.restaurant_id = r.restaurant_id
+  ),
+  agg AS (
+    SELECT
+      country,
+      cuisine,
+      SUM(total_orders) AS total_orders,
+      ROUND(SUM(total_orders * avg_total_price) / SUM(total_orders), 2) AS avg_total_price
+    FROM joined
+    GROUP BY country, cuisine
+  ),
+  ranked AS (
+    SELECT
+      country,
+      cuisine,
+      total_orders,
+      avg_total_price,
+      ROW_NUMBER() OVER (PARTITION BY country ORDER BY total_orders DESC) AS rank_in_country
+    FROM agg
+  )
+  SELECT country, cuisine, total_orders, avg_total_price, rank_in_country
+  FROM ranked
+) t
+ORDER BY country, rank_in_country;
+EOF
+
+./run_hive.sh datasource3 datasource4 datasource6
+hdfs dfs -ls /
+beeline -u "jdbc:hive2://localhost:10000/default" -n hadoop -e "
+DROP TABLE IF EXISTS restaurants;
+DROP TABLE IF EXISTS restaurants_raw;
+DROP TABLE IF EXISTS datasource3;
+DROP TABLE IF EXISTS datasource4;
+"
+chmod +x /home/hadoop/run_hive.sh
+./run_hive.sh datasource3 datasource4 datasource6
+hdfs fds -ls /
+hdfs fds -ls \
+hdfs dfs -ls /
+hdfs dfs -ls /datasource6
+hdfs dfs -cat /datasource6/000000_0
+./run_hive.sh datasource3 datasource4 datasource6
+hdfs dfs -cat /datasource6/000000_0
 exit
