@@ -47,6 +47,7 @@ services:
     ports:
       - "4040:4040" # Spark Driver UI
       - "8020:8020" # HDFS NameNode RPC port
+      - "8080:8080" # Apache airflow
       - "8088:8088" # YARN ResourceManager UI
       - "9870:9870" # HDFS NameNode Web UI
       - "9999:9999" # Tez UI (static files)

@@ -1,57 +1,3 @@
-hadoop fs -rm -r /input
-hadoop fs -rm -r
-hdfs dfs -rm -r /input/*
-hdfs dfs -rm -r input/
-hadoop fs -ls -R input/
-hadoop fs -mkdir -p input
-hadoop fs -put trips input/
-
-hadoop fs -put datasource1/ input/
-hadoop fs -put *.csv input/
-hadoop fs -ls -R input/
-hdfs fsck input/datasource1/orders99.csv -files -blocks -locations
-exit
-ls
-chmod +x mapper.py reducer.py 
-python --version
-ls
-cat data/datasource1/orders00.csv | python mapper.py | sort -k,1 | python reducer.py 
-chmod +x mapper.py reducer.py 
-ls -la
-ls -la | grep .py
-cat data/datasource1/orders00.csv |./mapper.py | sort | ./reducer.py 
-cat data/datasource1/orders00.csv | python mapper.py | sort | python reducer.py 
-hadoop fs -ls -R input/
-hdfs dfs -ls /input/datasource1
-hdfs dfs -ls input/datasource1
-hdfs dfs -ls input/datasource1ls /home/hadoop/work
-ls /home/hadoop/workh
-ls /home/hadoop/work
-ls home/hadoop/work
-ls
-cd ..
-ls
-cd hadoop/
-cd ~
-ls ~
-ls /
-ls /home
-ls /home/hadoop/
-hadoop jar $HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming*.jar   -input /input/datasource1   -output /output/datasource3   -mapper /home/hadoop/mapper.py   -reducer /home/hadoop/reducer.py   -file /home/hadoop/mapper.py   -file /home/hadoop/reducer.py
-hdfs dfs -ls /input
-hdfs dfs -ls input
-hdfs dfs -mv input /input
-hdfs dfs -ls /input
-hadoop jar $HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming*.jar   -input /input/datasource1   -output /output/datasource3   -mapper /home/hadoop/mapper.py   -reducer /home/hadoop/reducer.py   -files /home/hadoop/mapper.py,/home/hadoop/reducer.py
-hadoop jar $HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming*.jar   -input /input/datasource1   -output /output/datasource3   -mapper /home/hadoop/mapper.py   -reducer /home/hadoop/reducer.py   -files /home/hadoop/mapper.py,/home/hadoop/reducer.py
-hadoop jar $HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming*.jar   -input /input/datasource1   -output /output/datasource3   -mapper /home/hadoop/mapper.py   -reducer /home/hadoop/reducer.py   -file /home/hadoop/mapper.py   -file /home/hadoop/reducer.py
-yarn logs -applicationId job_1762035315596_0002
-yarn logs -applicationId job_1762035315596_0002
-yarn logs -applicationId job_1762035315596_0002
-yarn logs -applicationId job_1762035315596_0002
-yarn logs -applicationId application_1762035315596_0002
-cat /home/hadoop/data/datasource1/orders00.csv | python3 /home/hadoop/mapper.py | sort | python3 /home/hadoop/reducer.py | head
-chmod +x /home/hadoop/mapper.py /home/hadoop/reducer.py
 cat /home/hadoop/data/datasource1/orders00.csv | python3 /home/hadoop/mapper.py | sort | python3 /home/hadoop/reducer.py | head
 ls
 cat reducer.py 
@@ -497,4 +443,58 @@ hdfs dfs -ls /datasource6
 hdfs dfs -cat /datasource6/000000_0
 ./run_hive.sh datasource3 datasource4 datasource6
 hdfs dfs -cat /datasource6/000000_0
+exit
+ls
+hdfs dfs -ls /
+ls
+chmod +x run_hive.sh 
+chmod +x run_mr.sh 
+./run_mr.sh 
+ls
+cd datasource4/
+ls
+cd ..
+wget https://www.cs.put.poznan.pl/kjankiewicz/bigdata/projekty/zestaw15.zip
+ls
+unzip zestaw15.zip 
+ls
+rm datasource4/
+rm -r datasource4/
+ls
+mv input/ datasource
+ls
+cd datasource/
+ls
+mv datasource* ..
+ls
+cd ..
+ls
+rm datasource
+rm -r datasource
+ls
+cd datasource1
+ls
+cd ..
+ls
+ls
+rm zestaw15.zip 
+hadoop fs -put datasource1 /
+hadoop fs -put datasource4 /
+hdfs dfs -ls /
+hdfs dfs -ls /datasource1
+hdfs dfs -ls /datasource4
+clear
+ls
+vi run_mr.sh 
+vim run_mr.sh 
+nano run_mr.sh 
+./run_mr.sh datasource1 datasource3
+./run_hive.sh.sh datasource3 datasource4 datasource6
+./run_hive.sh datasource3 datasource4 datasource6
+hdfs dfs -ls /
+hdfs dfs -ls /datasource3
+hdfs dfs -cat /datasource3/part-00000
+hdfs dfs -ls /datasource6
+hdfs dfs -cat /datasource6/000000_0
+clear
 exit
