@@ -1,62 +1,53 @@
-USE default;
+DROP TABLE food_orders_ext;
+DROP TABLE restaurants_ext;
+DROP VIEW cuisines;
+DROP VIEW cuisines_ranked;
 
-DROP TABLE IF EXISTS datasource3;
-DROP TABLE IF EXISTS datasource4;
 
-CREATE EXTERNAL TABLE datasource3 (
-  restaurant_id STRING,
-  payment_type STRING,
-  total_orders INT,
-  avg_total_price DOUBLE
+CREATE EXTERNAL TABLE IF NOT EXISTS food_orders_ext (
+    restaurant_id STRING, 
+    payment_type STRING, 
+    avg_total_price FLOAT,
+    orders_count INT
 )
+COMMENT "food orders"
 ROW FORMAT DELIMITED
-FIELDS TERMINATED BY '\t'
+FIELDS TERMINATED BY "\t"
 STORED AS TEXTFILE
-LOCATION '${hiveconf:input_dir3}';
+location '${hiveconf:input_dir3}';
 
-CREATE EXTERNAL TABLE datasource4 (
-  restaurant_id STRING,
-  name STRING,
-  city STRING,
-  country STRING,
-  cuisine STRING
+
+CREATE EXTERNAL TABLE IF NOT EXISTS restaurants_ext (
+    restaurant_id STRING,
+    name STRING,
+    city STRING,
+    country STRING, 
+    cuisine STRING
 )
+COMMENT "restaurants"
 ROW FORMAT DELIMITED
-FIELDS TERMINATED BY ','
+FIELDS TERMINATED BY ","
 STORED AS TEXTFILE
-LOCATION '${hiveconf:input_dir4}'
-TBLPROPERTIES ("skip.header.line.count"="1");
+location '${hiveconf:input_dir4}';
 
-INSERT OVERWRITE DIRECTORY '${hiveconf:output_dir6}'
-ROW FORMAT DELIMITED
-FIELDS TERMINATED BY '\t'
-SELECT
-  concat(
-    '{"country":"', regexp_replace(country, '"', ''), '",',
-    '"cuisine":"', regexp_replace(cuisine, '"', ''), '",',
-    '"total_orders":', CAST(total_orders AS STRING), ',',
-    '"avg_total_price":', CAST(avg_total_price AS STRING), ',',
-    '"rank_in_country":', CAST(rank_in_country AS STRING), '}'
-  ) AS json_output
-FROM (
-  SELECT
-    country,
-    cuisine,
-    total_orders,
-    avg_total_price,
-    ROW_NUMBER() OVER (PARTITION BY country ORDER BY total_orders DESC) AS rank_in_country
-  FROM (
-    SELECT
-      r.country,
-      r.cuisine,
-      SUM(s.total_orders) AS total_orders,
-      ROUND(
-        SUM(s.total_orders * s.avg_total_price) / SUM(s.total_orders),
-        2
-      ) AS avg_total_price
-    FROM datasource3 s
-    INNER JOIN datasource4 r ON s.restaurant_id = r.restaurant_id
-    GROUP BY r.country, r.cuisine
-  ) aggregated
-) ranked
-ORDER BY country, rank_in_country;
+
+CREATE VIEW IF NOT EXISTS cuisines as
+    SELECT  r.country as country, r.cuisine as cuisine, sum(f.orders_count) as total_orders, avg(f.avg_total_price) as avg_total_price
+    FROM    restaurants_ext r inner join food_orders_ext f on r.restaurant_id == f.restaurant_id group by r.country, r.cuisine;
+
+CREATE TABLE cuisines_ranked(
+    country STRING,
+    cuisine STRING,
+    total_orders INT,
+    avg_total_price FLOAT,
+    rank_in_country INT
+)
+COMMENT "final stats"
+ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.JsonSerDe'
+STORED AS TEXTFILE
+location '${hiveconf:output_dir6}';
+
+INSERT OVERWRITE TABLE cuisines_ranked
+    SELECT country, cuisine, total_orders, avg_total_price, rank() over (partition by country order by total_orders desc) as rank_in_country FROM cuisines;
+
+select * from cuisines_ranked;

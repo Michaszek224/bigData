@@ -1,0 +1,201 @@
+restaurant_id,name,city,country,cuisine
+6e551d53-4f6d-4b84-a9de-3d7c79694805,"2955 King","Kaybury","Dominican Republic",American
+ff4db0d8-e809-46e8-9ae0-78ffee4902d9,"Sweet Creamery","Spencerchester","Czech Republic",Polish
+c83bba2f-5229-4998-9566-1f3179b13e8a,"Thirsty Subs","Port Juliette","Central African Republic",Thai
+795088d7-d227-422e-ad8c-f048bde0675e,"Hungry Pub","Reingerfurt","Zimbabwe",American
+058b9c75-b72f-4594-80d2-e41194ff7672,"Spice Diner","Hickleland","Saint Martin",Chinese
+25659c0e-6eb5-4c57-add8-fb6ac5f42699,"Golden Steakhouse","Lynville","Martinique",American
+6c6a3b10-9747-4dca-a041-4edc22d147b0,"Fast Diner","West Karriefurt","Uruguay",Indian
+52f5634d-de98-4543-8a1e-cbf1e2d0242f,"Red Sushi","Duaneburgh","New Zealand",Indian
+4e44f26d-5455-405b-8fdb-63ab8b739ecf,"Blue Plate Coffee","Port Courtney","Russian Federation",Japanese
+0e0d5f13-edd5-4ab0-9ddd-3df111bedc5a,"Thirsty Coffee","South Katina","Saint Helena",Indian
+f0a6a958-e434-41bf-a830-dffa55a34db5,"5423 Eatery","Lake Milan","El Salvador",Japanese
+0df3bae1-6384-4856-aa27-aef9f6c48b75,"Blue Plate Bar & Grill","Anamarialand","Ethiopia",French
+1233cc27-7567-48e0-8dd2-6b0019506c2f,"Smokestack Deli","Lake Wynonaborough","Norfolk Island",Italian
+b3688304-b24b-416a-9bf4-c2b6aaeb59d3,"RA Deli","Sylvesterfort","Virgin Islands, U.S.",Chinese
+0fcf4084-ea31-49f8-99f9-9bf8c8b0c16b,"Smokestack Pub","East Marvinmouth","Colombia",American
+428424b7-1f94-496a-8b7a-497ce177d32c,"0525 Dragon","South Tristanborough","Wallis and Futuna",Italian
+5eb75bc0-d5fa-4209-9d42-7767f3f0585b,"Blue Juice Bar","New Enid","Barbados",Indian
+f543de06-e341-4de2-95ab-ca0fd3ee51fe,"Golden Box","Lake Sona","Brazil",Indian
+cf65c4b6-4c1c-420b-95de-23e5b56ffad5,"Blue Plate Deli","New Jerrybury","South Georgia and the South Sandwich Islands",Thai
+0a15d43b-8f6b-444a-bef2-ffbddfdbd16f,"09 Dragon","Marquisville","Tokelau",American
+bb6ceda0-3f7a-4dfa-9862-41a88dd468b2,"NBJ Cafe","Port Damon","Angola",Italian
+68169a66-a8d4-4763-914e-7befc826445b,"Belly Sushi","West Norman","Gambia",Mexican
+a302a1a8-c429-406f-abff-9f273aa0a4b5,"Big Coffee","Lake Karina","Georgia",Italian
+aac35608-9499-49c5-811a-a059e773c968,"Smokestack Spoon","New Nicholmouth","Solomon Islands",French
+65b2c0ea-6192-47fc-9286-2c1dd3ecefb1,"MZP Bakery","Nicolasburgh","Saint Helena",Chinese
+ebe19120-496a-47fa-87eb-2440212a3363,"Silver Creamery","South Tamara","Tuvalu",Japanese
+0d463f72-c3a1-4a2b-8d0d-1721a0d1a06b,"Smokestack Grill","Medhurstshire","Malawi",Greek
+52c87fd9-fdf0-4256-b929-6153ad24a0ac,"Thirsty Shakes","South Brice","Nigeria",Chinese
+9b9edd1e-b4f7-414c-b8b5-a3dc51fa0a8c,"Thirsty Juice Bar","Treuteltown","Rwanda",Greek
+ef7fad1f-a86f-4ee1-95b4-ce1f339f0fa5,"Hungry Dragon","Cormierborough","Nepal",Mexican
+f90cf3ca-e2d0-4129-bc7a-e8a2b80880da,"Salty Dragon","South Clyde","Angola",American
+1eeb9c5f-5b7a-47af-b4f1-5a50d9d1089c,"6542 Dragon","East Donaldside","Saint Pierre and Miquelon",Japanese
+953417c6-cd52-45e9-9ca0-bb450653c934,"041 Cafe","Zachariahville","Central African Republic",American
+5f0f3def-9ff6-4282-ad04-001c4a769966,"Blue Eats","Lake Sharilynmouth","Philippines",Thai
+c1a09d60-c9e8-4489-a68e-e01b51541d33,"Spice Bar & Grill","Marcelinobury","Guatemala",American
+73a2b03c-2dca-486e-8ebc-c4d6bb68a8c6,"Golden Eatery","Port Sebastianhaven","Tokelau",American
+4bb2d776-14c0-4ef6-b8ba-c580cbed72b8,"Smokestack Spoon","Batzburgh","Bahamas",Thai
+93cdeef1-3fc3-4a63-a275-0ae87ae6b335,"Silver Eatery","Schambergerborough","Estonia",Polish
+6b1178fc-1745-401d-88da-3903c243ebe9,"Salty Subs","South Valerie","Paraguay",Greek
+f6c35464-33dd-44a7-bf84-071f2e427045,"Silver Subs","West Fred","Malawi",Thai
+3befa4dc-d961-4a3a-9410-d43d1bdaa335,"29 Subs","Purdyland","Kiribati",Italian
+050d9901-1cb5-413a-9c31-282028f863c1,"Hungry Kitchen","Francishaven","Falkland Islands (Malvinas)",Thai
+3ab3404a-ee80-4ed2-8d90-a6f0dad14e48,"Green Cafe","North Ethelene","United States of America",Italian
+0a5bd884-b432-4ce5-b14e-44b4aedd4c0f,"Sugar Sushi","Lilaburgh","Belgium",Italian
+67c276b0-7be6-4f3c-bf86-c342095c8112,"Sugar Grill & Tap","Port Johnny","Bosnia and Herzegovina",Greek
+39cb44e2-a541-4b98-bc0b-db5f31cf8710,"Hungry Diner","Rosabury","Gambia",Japanese
+515fe1d2-d33a-4b9d-8c19-07e0cbe81a9a,"Salty Bar & Grill","Lake Adella","Kuwait",Polish
+ba5d9947-b043-4aca-8ee0-6b77895cf8e8,"Blue Plate Bakery","North Verlieville","Pitcairn Islands",Indian
+92da274a-bea2-490a-bb52-196c46fa8487,"Sugar Steakhouse","Port Young","Palestinian Territory",American
+8b546c63-5406-493d-bc69-cfb594b38267,"Green Spoon","East Ora","Seychelles",Japanese
+6bd388d4-5636-450b-bacd-55bdcb769bab,"Golden Bakery","Lake Alvertabury","Czech Republic",Indian
+e38afcd9-9e08-47ba-bc92-5ebb4bc271eb,"Spice Grill","Oscarstad","Brunei Darussalam",Chinese
+3910ab11-8758-4a4f-8a9b-c4f5df7413c4,"909 Juice Bar","Sengerview","Andorra",Japanese
+910b1d47-5c37-48b1-8bde-96c60660f1d7,"5444 Pub","Lake Zachariah","Maldives",Polish
+6aaabc79-3d35-410f-bb96-f86a3930d0ff,"Fat Diner","McGlynnfurt","Bolivia",Italian
+bfa3444b-2be9-46be-b944-720d86a59770,"Blue Plate Box","Morrisville","Nigeria",Greek
+06e585f0-5b60-4900-81d1-3379328e6c17,"2890 Brasserie","North Bradley","Guinea",Italian
+7a2e5fa5-096b-4701-8ce6-7a3db39bf8eb,"29 Eats","Port Noelville","Norfolk Island",Polish
+365c90d0-a590-4209-9401-2ce55af5ed98,"Green Sushi","Gustavohaven","Haiti",French
+b95f7619-fab2-4df9-8683-1f2aeb93a660,"Blue Kitchen","East Janyce","Nepal",French
+205ea7f7-e714-45b8-a083-11247ff702a1,"Salty Subs","New Valerie","Andorra",Mexican
+59827b2a-ae17-44b1-bd6f-6f08718559cb,"Hungry King","Kovacekhaven","Northern Mariana Islands",Indian
+c5817fdc-a4dc-4879-b957-30cfda62016b,"Spice Shakes","Zboncakhaven","Botswana",Japanese
+05ccd8a5-ea5f-4353-bd1e-3022152b0685,"Hungry Eats","Port Freeman","United States of America",American
+21edfc22-3f73-4335-a774-3cf78ab65e86,"Salty Curry","New Claud","Swaziland",American
+4e6807ca-aed8-4ec9-b1b0-0e3aba57efb1,"Silver Shakes","Lerafort","Nepal",Indian
+9fa382f0-8393-48db-ad30-43c953282401,"Big Diner","Uptonstad","Sweden",American
+ceafdb2a-788d-48e0-acdd-bd533a2e7ab6,"BZE House","New Jene","Zambia",Polish
+a938df5f-7764-459c-8bfd-90409d16b3c6,"HTF Grill","Tienfurt","Isle of Man",Japanese
+69446e90-4237-4410-ab55-e011eb04cce0,"Spice Pub","Vonmouth","Malaysia",Chinese
+14eace30-1ac2-411e-8eef-98e8f32a87fb,"Big Dragon","New Rickiefort","Honduras",Thai
+a3f626b9-cc27-4c04-8570-be79ab8bda4a,"Blue Plate Curry","South Newtonland","Georgia",Italian
+8b115a34-224b-453c-be69-b53a7445b466,"OH Gastropub","Abernathybury","Burundi",Chinese
+e119f98a-df63-41dc-8e01-bb49ca2dc724,"Sugar BBQ","New Shylamouth","Ghana",Thai
+bf0de251-90d7-423c-8b31-48df1a89964f,"NUJ BBQ","Howellview","Honduras",Italian
+caca465c-e9f2-4add-91b5-24c70595e321,"Big Juice Bar","Williamschester","Switzerland",French
+1a48aa9a-def3-481d-922a-94300aa97309,"Orange Spoon","Rosenbaumchester","Namibia",Polish
+49af098b-bf79-4643-8e49-739ea932d38b,"Hungry Spoon","Legrosborough","Mauritania",Polish
+b014b56e-3263-4b63-8430-46e00bc5ea77,"Sweet Bakery","East Shariceport","Finland",Mexican
+e277d099-db2a-4aee-ab86-8b0e73a34383,"Smokestack Coffee","Lake Manuel","Mongolia",American
+ada8704c-2784-4d70-84da-10078407d2c8,"Blue Plate Eatery","Port Agnesside","Slovenia",Indian
+77ca464a-fe0d-4dcc-8f08-3eb2f7b64f76,"Orange Dragon","South Edward","Pakistan",Japanese
+71f17b36-2c37-4cfa-bf8a-894fa94c0e9b,"3484 Steakhouse","Ileenfort","Ecuador",Indian
+caad7924-4bc5-4f85-9662-11ca261e3c87,"Thirsty Burger","Hudsonmouth","Brazil",Japanese
+0a5a9fc7-e126-48f0-99aa-dea85c606f66,"Red Deli","East Lael","Bosnia and Herzegovina",American
+f067e21d-d1d4-4e87-9cae-9753f5f9ccb6,"06 Brasserie","New Numbersmouth","Germany",Greek
+1a31c678-d420-495a-aff3-0f1609514e1e,"Spice Eats","West Julietta","Luxembourg",Chinese
+1407e9cf-22c9-4137-a2fe-cc12dc038235,"Green Bakery","Port Khadijahview","Mongolia",Japanese
+63846b60-b7be-4087-ac6e-56c9bc130a20,"TN Pub","Woodrowbury","Holy See (Vatican City State)",American
+6e6d2c67-f7fb-4a98-8f9a-4822259b25c4,"Sugar Eats","Angelaland","Burkina Faso",Greek
+6c3bf618-a715-40f9-9faa-cfc5f5beef2f,"Orange Grill & Tap","Gerholdhaven","Romania",Japanese
+02c65c06-56ad-4670-b8e2-10ab417c7154,"Golden Coffee","Mackenziefurt","Jordan",Mexican
+0130fcd4-a6cf-4a72-8400-7bcae1abce34,"Sweet Eatery","North Kurtstad","Turkey",Japanese
+52fbb114-83aa-432d-b2f1-f3e37a5c4754,"Smokestack Box","Lake Jude","Djibouti",Mexican
+aff4340c-d102-49ba-af8e-84d2737ce82c,"448 Pizza","Vicenteport","Cameroon",Chinese
+9305d562-2505-493d-8ed8-3fb721c8f491,"5579 Kitchen","Linetteville","Monaco",Mexican
+000f9c8f-2fc7-4346-844d-c04f10751265,"Belly Diner","Port Lon","Northern Mariana Islands",Thai
+c3ffc43c-0c11-40fa-9824-f234161741d0,"Hungry Pub","Prosaccotown","Ukraine",Thai
+c9dcc28a-ae5f-477c-ae7e-72d94129f449,"Silver Kitchen","Ginettebury","Sierra Leone",French
+6117b6f0-c4f4-4bf1-9eeb-f33950decba8,"Spice Gastropub","Boyerport","Nepal",Italian
+7a18d550-38d0-40b2-84a7-547162e7e409,"Sugar Grill & Tap","North Annetta","Montserrat",French
+62a2bfef-ca4a-4dec-90ea-bf15ea1880d2,"Orange Box","East Ervinland","France",Mexican
+0b2a0e9a-e050-4380-b607-57adcbbf59d4,"Blue Plate House","Dungview","Saint Pierre and Miquelon",Italian
+fdb5454e-2230-489e-ade4-9218ff28cbd8,"Sweet Coffee","Blickfort","Peru",Indian
+d6d4ef4b-0870-48aa-b884-013237f255f4,"Smokestack Bakery","Port Shannafurt","Virgin Islands, U.S.",Greek
+c63bd277-c81c-40c5-8720-6ce916d653c4,"Fat Eats","Brendaberg","Slovenia",Chinese
+0a0ac3e5-6e20-4fbc-87ec-5481c70e38bc,"Silver Subs","Thedaberg","Taiwan",Greek
+964d337f-acd5-4ca2-8843-9be3f2eb60fc,"Thirsty Bar & Grill","East Lonna","Djibouti",Polish
+00d7ae70-0f46-4453-963c-4ab2a3d29314,"Smokestack Gastropub","East Lorettamouth","Paraguay",French
+98b17fed-218c-4f20-8410-9f0edfc74455,"6337 Curry","Ebertside","Gambia",American
+bb9edfa8-17f7-4f6f-8e3b-616693a298b1,"1082 Sushi","Leoview","United Kingdom",American
+bc58b12c-65c4-4f21-89ef-3e492a22ef7c,"Hungry Brasserie","New Philip","Cuba",Greek
+d3f641e5-b8b5-4f5f-9155-7768df2033e8,"Orange Coffee","Jenkinsborough","Algeria",Chinese
+8626238e-5813-415a-9a8c-db944b1e0269,"LR Sushi","South Jereburgh","Ecuador",Indian
+885715b6-b1eb-44ca-8460-28c0343e56f3,"Smokestack Curry","Margaritemouth","Sierra Leone",Greek
+2a109685-1399-4149-8951-fba29bb0360d,"Sweet Sushi","Gibsonchester","Egypt",Mexican
+d87f31d7-79ef-4c17-856e-142e791b04da,"Green Coffee","Wittingfurt","Pitcairn Islands",Chinese
+6945f6f4-b8f9-4d04-90ff-e59ed705578e,"Spice Diner","Ethanton","India",French
+56a75a3e-a944-4147-8cba-f1024726993f,"LHI Gastropub","Dennisbury","French Polynesia",French
+401a6911-a31e-4892-adc1-56e3e1eb090a,"Silver Gastropub","Melland","Tonga",Greek
+b03f75c1-655f-4480-a2bf-1a0af806e96e,"Blue Plate Sushi","Maximinaport","Myanmar",Japanese
+4f6ae324-5b6d-47d6-a86d-26ec6fbe1e0e,"Blue Spoon","Jacquettaberg","Belize",Chinese
+7169ef0c-f2c8-4ae3-83f6-87691664d2d2,"Blue Subs","Runtehaven","Norway",Japanese
+500fde18-ea61-4380-9ea4-f06d09985870,"8701 Dragon","Durganshire","Bhutan",Polish
+b90a3a7f-421e-47e5-8598-fe50f365a62e,"Big House","Lake Claytonborough","Venezuela",Italian
+60cd80b6-3967-4dae-b4df-adc7b5644971,"Red Gastropub","Jamiechester","Cuba",Greek
+0a570207-0f70-467f-bbeb-44a0a60a9a25,"Belly Creamery","East Annemarie","Niue",Polish
+935ebde1-5945-4673-886e-1a7a12cc2d4e,"Red Gastropub","New Edith","Madagascar",American
+e6cb1215-5314-4d05-bfd1-f6e5d36e89f7,"Red Gastropub","West Sherell","Tuvalu",Italian
+726d71e2-70fd-4416-8568-78619c14a73a,"Sugar King","New Isaac","Tonga",Thai
+b6c26110-1b77-4777-8c79-c69ec19b66df,"9791 Eats","Bergemouth","Senegal",American
+53db1213-7316-47bb-9099-c1def0e3c96b,"Golden Deli","Lake Everetteview","Russian Federation",Greek
+3dcaabe3-78c9-4d88-bed5-56ca7ceea07c,"Silver Bar & Grill","Pfannerstillhaven","Jamaica",Polish
+27e45431-1333-4ffd-a0c8-be56ffdc5d4e,"Silver Eats","New Carlos","Guadeloupe",American
+5d6f84a5-a4de-442e-99b9-b8ef714b4436,"Thirsty Bar & Grill","Schoenfurt","Montserrat",Italian
+485b65e7-fdf4-474d-afba-37986d8d3cd8,"Smokestack Gastropub","South Wesleyburgh","Nigeria",French
+fbe227d7-6d32-4407-9783-7fdac983e55f,"Big Coffee","Shanahanport","Yemen",French
+2ca088cd-c6c6-4e60-a1a4-d2990ee21b12,"4549 Deli","Ettieland","Russian Federation",Chinese
+d5cfb1a3-ce2f-4aff-ab4c-50e0c5426af1,"Belly Juice Bar","South Sheridanland","Libyan Arab Jamahiriya",Japanese
+941529ef-2114-4bff-907a-4596ff4593a1,"42 Deli","New Leroychester","Norway",Chinese
+d33bbfcd-a2ca-4e80-8a1c-65223f061e7e,"Thirsty Sushi","Lake Mauro","Jordan",French
+9c53f3f8-5b22-4d77-bd76-cfa6c70e443c,"Blue Plate Kitchen","Port Marie","Bhutan",Japanese
+c46351bf-193f-49af-a5d6-456188837c3d,"Hungry Spoon","Parischester","Cameroon",American
+36b880b0-e9bd-4c0b-8f1c-32018f6c758a,"Fat Subs","Rathborough","Equatorial Guinea",Mexican
+3e97fc93-73a7-45e0-9888-f7a03ee258a7,"Belly Box","Port Josefina","British Indian Ocean Territory (Chagos Archipelago)",Japanese
+209e786b-2a61-4e52-a3b2-1cc98bcbf18c,"Thirsty Burger","Cliffmouth","Cote d'Ivoire",French
+fe624323-ba72-456d-9842-ed9e0edc75df,"Sugar Deli","Corkeryview","Sri Lanka",Japanese
+99c406e7-092b-4eeb-bc08-56fc041c253d,"Fast Coffee","Murazikview","Croatia",Indian
+0472ca7f-b133-4710-8f43-24a3c6c1afd1,"Blue Plate Pizza","Port Dwightside","Tuvalu",Polish
+d5eaf6a7-76cc-48ec-98d9-ba713e2df70f,"Hungry Kitchen","Shemekamouth","Hong Kong",Chinese
+89d26a00-0fde-4c03-8430-b06f6bc3f33a,"FEP Eatery","Brekkeberg","Democratic People's Republic of Korea",Chinese
+8250871a-2b35-424e-a1a1-4eb4faffabfb,"Hungry Diner","North Nerissa","Paraguay",Indian
+b047b369-02d0-4f25-9af0-f1e883228863,"Silver Brasserie","Celestinaside","Angola",Chinese
+bb6bf39c-f455-4e08-a59e-1bdaaa91d4aa,"029 Steakhouse","Andersonside","Turks and Caicos Islands",Thai
+e886c155-0dae-4b36-88f5-a86fa474d1f6,"Sugar Spoon","Smithstad","Israel",French
+4717d2a3-4b2a-44f1-b960-a2b73e2d23fd,"Fat BBQ","Morissettechester","Uruguay",French
+ecf1ffb0-ac00-4968-87ea-8beef4ace55a,"Sweet Shakes","North Marcelotown","India",Italian
+90f0db1e-2b19-43f7-ba17-233c7c214eca,"Sweet Burger","Port Oren","Uruguay",Polish
+e7991221-0de0-4ef8-aa9c-ca3b59197059,"Fat Coffee","Jasminefurt","Germany",American
+983d66ae-c8b0-46b8-8abc-26a1055cf729,"Salty Eatery","South Wileybury","Congo",Greek
+e12c3d24-86c8-474f-b86b-370df36adbfe,"Spice Gastropub","Port Douglass","Costa Rica",Mexican
+4739f27f-7a96-4d52-83ae-0c6fd4c8c606,"Sweet Steakhouse","East Kendallside","Reunion",Greek
+cb8747c7-32ca-4b6b-868d-13ab01d953ec,"Spice Bakery","Sanfordland","Barbados",Italian
+cd50913f-8c99-4253-9134-0cf5fe5f300f,"Orange Curry","North Lupe","Niger",Italian
+d7af10ce-45c9-4fc8-8dd8-b1c5491aad5f,"Blue Creamery","Brittborough","Andorra",Italian
+09ba4183-1b94-4f8c-bc5f-eca421a88524,"Blue Grill & Tap","North Joshua","Greece",Japanese
+e6e1db85-f8ba-4264-9c9a-520ecda4bc4c,"99 Juice Bar","Lake Asa","Suriname",Greek
+f3826f04-0dfa-4266-8002-58fede0093f5,"Smokestack Grill","Hansfort","French Southern Territories",French
+10b26c2d-7d56-4175-84a8-a2775e128a9d,"Fat Sushi","Turnerberg","Somalia",Greek
+b04ce307-2d1f-4214-b023-d8f4379041a1,"Sweet Brasserie","New Robynfurt","Argentina",Greek
+103fcba5-5588-45a5-9fe0-6ac948d3860e,"Fat Sushi","Port Courtneymouth","Tuvalu",Greek
+a5ffc907-be77-43e6-8694-4a0bf09bd3fb,"Golden Shakes","Hanhbury","Heard Island and McDonald Islands",American
+e85d0261-2d97-4475-a749-363ec9040a74,"439 Brasserie","Lake Damianhaven","British Indian Ocean Territory (Chagos Archipelago)",Chinese
+8f7f530b-bb30-4a05-b437-744ed30af54f,"2418 Brasserie","Corwinport","Swaziland",Greek
+5400d214-6176-40bf-88d2-3f53ed38bf69,"Fast Diner","East Margurite","French Southern Territories",Mexican
+c0d74d86-5c5b-481d-b8e3-61eeb9c77255,"Red Pub","North Timmyside","Christmas Island",Indian
+ec3490d2-e8da-47ee-ae12-0ca0b1d7a2bb,"Blue Plate Spoon","North John","Dominica",French
+b0d737cd-ec4b-4a88-aa81-d012ef3fb719,"Silver Burger","O'Reillyhaven","Eritrea",Japanese
+26d032f1-9fe9-487a-987a-a8be14e1db05,"BSS Pub","Lake Eveliachester","Sao Tome and Principe",French
+23650eb4-f98d-45a3-a90b-a378f03d469d,"Belly Gastropub","Port Shanonville","Canada",French
+7509850a-5062-4da9-aad6-bc5b9e363ef1,"Belly Coffee","Port Theodoreshire","Ukraine",Italian
+1d32c3b3-c732-4995-aa6b-ff159deb3bdf,"Sweet Coffee","West Brent","Papua New Guinea",French
+dcfb3d05-846d-4915-99f3-ebbc7559d972,"Salty King","Port Linh","Turks and Caicos Islands",Mexican
+8113211c-bdc3-4bb0-94d9-3fd3871f3005,"Golden Cafe","Jarredborough","Rwanda",Mexican
+8e1bbe6c-7b75-46dc-8ca1-0b1664cd6ae4,"FU Grill","South Evelineshire","Kazakhstan",Polish
+4b14a58c-f1e4-40b6-888d-a88cd7055099,"Belly Diner","East Darellmouth","Marshall Islands",American
+2c6dafc9-06cc-4b3d-8b8d-12aae0644c58,"Spice Subs","Zboncakburgh","Russian Federation",Indian
+7d2df59f-386d-4aec-85a8-2443262a0cb4,"Thirsty Burger","West Arlenastad","Togo",Chinese
+5f6e51da-5f01-4c9a-85dd-7d50ef37e5d7,"Silver King","North Brantchester","Cote d'Ivoire",Chinese
+ebbc7df0-770d-44f8-b0ff-c62f9006e40e,"Spice Diner","North Jeanmarieton","Lithuania",Mexican
+11526850-7335-463f-b740-a52a90457c3b,"Thirsty Brasserie","Deanmouth","Trinidad and Tobago",Japanese
+a190f67b-21df-46bc-8164-46bdfa00af85,"SW Spoon","Lake Willia","Kuwait",American
+46032f36-69bc-465a-9b33-a5d560bfd77a,"Sugar BBQ","Baileytown","Mauritius",American
+8887df7e-682b-4d48-b18c-c1ddfa0aaa26,"Fat Dragon","Rickiefurt","Tajikistan",Thai
+6f61ca8e-51a1-48e0-abfa-88326e713e34,"Golden Subs","South Williamton","Anguilla",Polish
+7c991f43-c18b-4404-8826-97691b0dc00c,"548 Gastropub","Byrontown","Ukraine",Thai
+824998a2-7592-4051-ab0b-d5e12743c93b,"Belly Sushi","West Crysta","Dominica",Polish
+0dd437d0-74fa-43c3-8909-5c955e4d47dd,"Belly Gastropub","New Heriberto","Zimbabwe",Japanese
+74e76582-f1b8-4560-b049-8aebb59d4721,"Smokestack Gastropub","Ortizland","Tokelau",Chinese
+80537cf2-360f-4740-8b7e-d4cd56e22987,"Hungry Steakhouse","Candrastad","Spain",Chinese

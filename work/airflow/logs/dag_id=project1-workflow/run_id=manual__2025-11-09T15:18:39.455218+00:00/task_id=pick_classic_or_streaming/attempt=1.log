@@ -1,7 +1,0 @@
-{"timestamp":"2025-11-09T15:18:40.636536Z","level":"info","event":"DAG bundles loaded: dags-folder","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager","filename":"manager.py","lineno":179}
-{"timestamp":"2025-11-09T15:18:40.636832Z","level":"info","event":"Filling up the DagBag from /home/hadoop/airflow/dags/projekt1.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
-{"timestamp":"2025-11-09T15:18:40.658883Z","level":"info","event":"Done. Returned value was: hadoop_streaming","logger":"airflow.task.operators.airflow.providers.standard.operators.python.BranchPythonOperator","filename":"python.py","lineno":218}
-{"timestamp":"2025-11-09T15:18:40.658934Z","level":"info","event":"Branch into hadoop_streaming","logger":"airflow.task.operators.airflow.providers.standard.operators.python.BranchPythonOperator","filename":"branch.py","lineno":44}
-{"timestamp":"2025-11-09T15:18:40.659290Z","level":"info","event":"Following branch {'hadoop_streaming'}","logger":"airflow.task.operators.airflow.providers.standard.operators.python.BranchPythonOperator","filename":"skipmixin.py","lineno":152}
-{"timestamp":"2025-11-09T15:18:40.659345Z","level":"info","event":"Skipping tasks [('mapreduce_classic', -1)]","logger":"airflow.task.operators.airflow.providers.standard.operators.python.BranchPythonOperator","filename":"skipmixin.py","lineno":191}
-{"timestamp":"2025-11-09T15:18:40.664824Z","level":"info","event":"Skipping downstream tasks.","logger":"task","filename":"task_runner.py","lineno":935}

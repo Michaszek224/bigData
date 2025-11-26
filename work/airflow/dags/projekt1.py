@@ -10,29 +10,13 @@ with DAG(
     schedule=None,
     params={
         "dags_home": Param(
-            "/home/hadoop/airflow/dags", type="string"
+            "TU UZUPELNIJ SCIEZKE DLA TWOJEGO KATALOGU AIRFLOW/airflow/dags", type="string"
         ),
-        #"input_dir": Param(
-        #    "input", type="string"
-        #),
-        #"output_mr_dir": Param("project1/output_mr3", type="string"),
-        #"output_dir": Param("project1/output6", type="string"),
-        "datasource1_path": Param(
-            "/datasource1", type="string", 
-            description="Ścieżka do datasource1 (wejście MapReduce)"
+        "input_dir": Param(
+            "TU UZUPELNIJ SCIEZKE DLA TWOICH DANYCH ZRODLOWYCH/input", type="string"
         ),
-        "datasource3_path": Param(
-            "/datasource3", type="string",
-            description="Ścieżka do datasource3 (wyjście MapReduce)"
-        ),
-        "datasource4_path": Param(
-            "/datasource4", type="string",
-            description="Ścieżka do datasource4 (wejście Hive)"
-        ),
-        "datasource6_path": Param(
-            "/datasource6", type="string",
-            description="Ścieżka do datasource6 (wyjście Hive)"
-        ),
+        "output_mr_dir": Param("/project1/output_mr3", type="string"),
+        "output_dir": Param("/project1/output6", type="string"),
         "classic_or_streaming": Param(
             "streaming", enum=["classic", "streaming"]
         ),
@@ -41,38 +25,23 @@ with DAG(
     catchup=False,  
 ) as dag:
 
-#    # Usuwanie katalogów z HDFS jeśli istnieją
- #   clean_output_mr_dir = BashOperator(
-  #      task_id="clean_output_mr_dir",
-   #     bash_command=(
-    #        "if hadoop fs -test -d {{ params.output_mr_dir }}; "
-     #       "then hadoop fs -rm -f -r {{ params.output_mr_dir }}; fi"
-      #  ),
-    #)
-
-    #clean_output_dir = BashOperator(
-     #   task_id="clean_output_dir",
-      #  bash_command=(
-       #     "if hadoop fs -test -d {{ params.output_dir }}; "
-        #    "then hadoop fs -rm -f -r {{ params.output_dir }}; fi"
-        #),
-    #)
     # Usuwanie katalogów z HDFS jeśli istnieją
     clean_output_mr_dir = BashOperator(
         task_id="clean_output_mr_dir",
         bash_command=(
-            "if hadoop fs -test -d {{ params.datasource3_path }}; "
-            "then hadoop fs -rm -f -r {{ params.datasource3_path }}; fi"
+            "if hadoop fs -test -d {{ params.output_mr_dir }}; "
+            "then hadoop fs -rm -f -r {{ params.output_mr_dir }}; fi"
         ),
     )
 
     clean_output_dir = BashOperator(
         task_id="clean_output_dir",
         bash_command=(
-            "if hadoop fs -test -d {{ params.datasource6_path }}; "
-            "then hadoop fs -rm -f -r {{ params.datasource6_path }}; fi"
+            "if hadoop fs -test -d {{ params.output_dir }}; "
+            "then hadoop fs -rm -f -r {{ params.output_dir }}; fi"
         ),
     )
+
     # Wybór trybu wykonania: klasyczny MR lub streaming
     def _pick_classic_or_streaming(params):
         if params["classic_or_streaming"] == "classic":
@@ -93,70 +62,39 @@ with DAG(
             "hadoop jar {{ params.dags_home }}/project_files/ . . . "
         ),
     )
+
+    # MapReduce streaming
     hadoop_streaming = BashOperator(
         task_id="hadoop_streaming",
         bash_command=(
-            "hdfs dfs -rm -r -f {{ params.datasource3_path }} && "
-            "hadoop jar $HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming*.jar "
-            "-input {{ params.datasource1_path }} "
-            "-output {{ params.datasource3_path }} "
-            "-mapper /home/hadoop/airflow/dags/project_files/mapper.py "
-            "-combiner /home/hadoop/airflow/dags/project_files/combiner.py "
-            "-reducer /home/hadoop/airflow/dags/project_files/reducer.py "
-            "-file /home/hadoop/airflow/dags/project_files/mapper.py "
-            "-file /home/hadoop/airflow/dags/project_files/combiner.py "
-            "-file /home/hadoop/airflow/dags/project_files/reducer.py"
+            "mapred streaming -files "
+            "{{ params.dags_home }}/project_files/mapper.py,{{ params.dags_home }}/project_files/combiner.py,{{ params.dags_home }}/project_files/reducer.py "
+            "-input {{params.input_dir}}/datasource1 -output {{params.output_mr_dir}} -mapper \"python mapper.py\" "
+            "-combiner \"python combiner.py\" -reducer \"python reducer.py\" "
+            
         ),
     )
-    # MapReduce streaming
-    #hadoop_streaming = BashOperator(
-     #   task_id="hadoop_streaming",
-      #  bash_command=(
-    #        "mapred streaming "
-    #        "-files {{ params.dags_home }}/project_files/ . . ."
-   #     ),
-    #)
+
+    # Program Hive
     hive = BashOperator(
         task_id="hive",
         bash_command=(
-            "hdfs dfs -test -d {{ params.datasource3_path }} && "
-            "hdfs dfs -test -d {{ params.datasource4_path }} && "
-            "hdfs dfs -rm -r -f {{ params.datasource6_path }} 2>/dev/null || true && "
-            "beeline "
-            "-u jdbc:hive2://localhost:10000/default "
-            "-n hadoop "
-            "--hiveconf input_dir3={{ params.datasource3_path }} "
-            "--hiveconf input_dir4={{ params.datasource4_path }} "
-            "--hiveconf output_dir6={{ params.datasource6_path }} "
-            "-f {{ params.dags_home }}/project_files/hive.hql"
+            "beeline -n hadoop -u jdbc:hive2://localhost:10000/default -f {{ params.dags_home }}/project_files/hive.hql  \
+                --hiveconf input_dir3={{  params.output_mr_dir  }}  \
+                --hiveconf input_dir4={{  params.input_dir }}/datasource4  \
+                --hiveconf output_dir6={{  params.output_dir  }} "
         ),
         trigger_rule="none_failed",
     )
-    # Program Hive
-    #hive = BashOperator(
-     #   task_id="hive",
-      #  bash_command=(
-       #     "beeline -u jdbc:hive2://localhost:10000/default "
-        #    ". . ."
-        #),
-        #trigger_rule="none_failed",
-    #)
 
+    # Pobranie wyników
     get_output = BashOperator(
         task_id="get_output",
         bash_command=(
-            "hadoop fs -getmerge {{ params.datasource6_path }} output6.json && head output6.json"
+            "hadoop fs -getmerge {{ params.output_dir }} output6.json && head output6.json"
         ),
         trigger_rule="none_failed",
     )
-    # Pobranie wyników
-   # get_output = BashOperator(
-    #    task_id="get_output",
-     #   bash_command=(
-      #      "hadoop fs -getmerge {{ params.output_dir }} output6.json && head output6.json"
-       # ),
-        #trigger_rule="none_failed",
-    #)
 
     # Zależności
     [clean_output_mr_dir, clean_output_dir] >> pick_classic_or_streaming

@@ -1,171 +1,3 @@
-    '}'
-  ) AS json_record
-FROM (
-  WITH joined AS (
-    SELECT
-      r.country,
-      r.cuisine,
-      s.total_orders,
-      s.avg_total_price
-    FROM datasource3 s
-    JOIN restaurants r
-      ON s.restaurant_id = r.restaurant_id
-  ),
-  agg AS (
-    SELECT
-      country,
-      cuisine,
-      SUM(total_orders) AS total_orders,
-      ROUND(SUM(total_orders * avg_total_price) / SUM(total_orders), 2) AS avg_total_price
-    FROM joined
-    GROUP BY country, cuisine
-  ),
-  ranked AS (
-    SELECT
-      country,
-      cuisine,
-      total_orders,
-      avg_total_price,
-      ROW_NUMBER() OVER (PARTITION BY country ORDER BY total_orders DESC) AS rank_in_country
-    FROM agg
-  )
-  SELECT country, cuisine, total_orders, avg_total_price, rank_in_country
-  FROM ranked
-) t
-ORDER BY country, rank_in_country;
--- hive.hql
--- Skrypt Hive łączący dane o zamówieniach z restauracjami
--- Parametry: input_dir3, input_dir4, output_dir6
-USE default;
--- Usuń poprzednie definicje, jeśli istnieją
-DROP TABLE IF EXISTS datasource3;
-DROP TABLE IF EXISTS restaurants;
--- 1) Dane z MapReduce (input_dir3)
--- Format: restaurant_id, payment_type, total_orders, avg_total_price
-CREATE EXTERNAL TABLE datasource3 (
-  restaurant_id STRING,
-  payment_type STRING,
-  total_orders INT,
-  avg_total_price DOUBLE
-)
-ROW FORMAT DELIMITED
-FIELDS TERMINATED BY '\t'
-STORED AS TEXTFILE
-LOCATION '${hiveconf:input_dir3}';
--- 2) Dane o restauracjach (input_dir4)
-CREATE EXTERNAL TABLE restaurants (
-  restaurant_id STRING,
-  name STRING,
-  city STRING,
-  country STRING,
-  cuisine STRING
-)
-ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde'
-WITH SERDEPROPERTIES (
-  "separatorChar" = ",",
-  "quoteChar"     = "\""
-)
-STORED AS TEXTFILE
-LOCATION '${hiveconf:input_dir4}'
-TBLPROPERTIES ("skip.header.line.count"="1");
--- 3) Wynik: agregacja po kraju i rodzaju kuchni
---   total_orders: suma wszystkich zamówień (count_sum)
---   avg_total_price: średnia ważona (sum(avg * count) / sum(count))
---   rank_in_country: pozycja w rankingu wg liczby zamówień w ramach kraju
-INSERT OVERWRITE DIRECTORY '${hiveconf:output_dir6}'
-ROW FORMAT DELIMITED
-FIELDS TERMINATED BY '\t'
-SELECT
-  concat(
-    '{"country":"',   nvl(country,''), '",',
-    '"cuisine":"',    nvl(cuisine,''), '",',
-    '"total_orders":', cast(total_orders as string), ',',
-    '"avg_total_price":', cast(avg_total_price as string), ',',
-    '"rank_in_country":', cast(rank_in_country as string),
-    '}'
-  ) AS json_record
-FROM (
-  WITH joined AS (
-    SELECT
-      r.country,
-      r.cuisine,
-      s.total_orders,
-      s.avg_total_price
-    FROM datasource3 s
-    JOIN restaurants r
-      ON s.restaurant_id = r.restaurant_id
-  ),
-  agg AS (
-    SELECT
-      country,
-      cuisine,
-      SUM(total_orders) AS total_orders,
-      ROUND(SUM(total_orders * avg_total_price) / SUM(total_orders), 2) AS avg_total_price
-    FROM joined
-    GROUP BY country, cuisine
-  ),
-  ranked AS (
-    SELECT
-      country,
-      cuisine,
-      total_orders,
-      avg_total_price,
-      ROW_NUMBER() OVER (PARTITION BY country ORDER BY total_orders DESC) AS rank_in_country
-    FROM agg
-  )
-  SELECT country, cuisine, total_orders, avg_total_price, rank_in_country
-  FROM ranked
-) t
-ORDER BY country, rank_in_country;
--- hive.hql
--- Skrypt Hive łączący dane o zamówieniach z restauracjami
--- Parametry: input_dir3, input_dir4, output_dir6
-USE default;
--- hive.hql
--- Skrypt Hive łączący dane o zamówieniach z restauracjami
--- Parametry: input_dir3, input_dir4, output_dir6
-USE default;
--- Usuń poprzednie definicje, jeśli istnieją
-DROP TABLE IF EXISTS datasource3;
-DROP TABLE IF EXISTS restaurants;
--- 1) Dane z MapReduce (input_dir3)
--- Format: restaurant_id, payment_type, total_orders, avg_total_price
-CREATE EXTERNAL TABLE datasource3 (
-  restaurant_id STRING,
-  payment_type STRING,
-  total_orders INT,
-  avg_total_price DOUBLE
-)
-ROW FORMAT DELIMITED
-FIELDS TERMINATED BY '\t'
-STORED AS TEXTFILE
-LOCATION '${hiveconf:input_dir3}';
--- 2) Dane o restauracjach (input_dir4)
-CREATE EXTERNAL TABLE restaurants (
-  restaurant_id STRING,
-  name STRING,
-  city STRING,
-  country STRING,
-  cuisine STRING
-)
-ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde'
-WITH SERDEPROPERTIES (
-  "separatorChar" = ",",
-  "quoteChar"     = "\""
-)
-STORED AS TEXTFILE
-LOCATION '${hiveconf:input_dir4}'
-TBLPROPERTIES ("skip.header.line.count"="1");
--- 3) Wynik: agregacja po kraju i rodzaju kuchni
---   total_orders: suma wszystkich zamówień (count_sum)
---   avg_total_price: średnia ważona (sum(avg * count) / sum(count))
---   rank_in_country: pozycja w rankingu wg liczby zamówień w ramach kraju
-INSERT OVERWRITE DIRECTORY '${hiveconf:output_dir6}'
-ROW FORMAT DELIMITED
-FIELDS TERMINATED BY '\t'
-SELECT
-  concat(
-    '{"country":"',   nvl(country,''), '",',
     '"cuisine":"',    nvl(cuisine,''), '",',
     '"total_orders":', cast(total_orders as string), ',',
     '"avg_total_price":', cast(avg_total_price as string), ',',
@@ -498,3 +330,171 @@ FROM (
   ) aggregated
 ) ranked
 ORDER BY country, rank_in_country;
+USE default;
+DROP TABLE IF EXISTS datasource3;
+DROP TABLE IF EXISTS datasource4;
+CREATE EXTERNAL TABLE datasource3 (
+  restaurant_id STRING,
+  payment_type STRING,
+  total_orders INT,
+  avg_total_price DOUBLE
+)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY '\t'
+STORED AS TEXTFILE
+LOCATION '${hiveconf:input_dir3}';
+CREATE EXTERNAL TABLE datasource4 (
+  restaurant_id STRING,
+  name STRING,
+  city STRING,
+  country STRING,
+  cuisine STRING
+)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ','
+STORED AS TEXTFILE
+LOCATION '${hiveconf:input_dir4}'
+TBLPROPERTIES ("skip.header.line.count"="1");
+INSERT OVERWRITE DIRECTORY '${hiveconf:output_dir6}'
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY '\t'
+SELECT
+  concat(
+    '{"country":"', regexp_replace(country, '"', ''), '",',
+    '"cuisine":"', regexp_replace(cuisine, '"', ''), '",',
+    '"total_orders":', CAST(total_orders AS STRING), ',',
+    '"avg_total_price":', CAST(avg_total_price AS STRING), ',',
+    '"rank_in_country":', CAST(rank_in_country AS STRING), '}'
+  ) AS json_output
+FROM (
+  SELECT
+    country,
+    cuisine,
+    total_orders,
+    avg_total_price,
+    ROW_NUMBER() OVER (PARTITION BY country ORDER BY total_orders DESC) AS rank_in_country
+  FROM (
+    SELECT
+      r.country,
+      r.cuisine,
+      SUM(s.total_orders) AS total_orders,
+      ROUND(
+        SUM(s.total_orders * s.avg_total_price) / SUM(s.total_orders),
+        2
+      ) AS avg_total_price
+    FROM datasource3 s
+    INNER JOIN datasource4 r ON s.restaurant_id = r.restaurant_id
+    GROUP BY r.country, r.cuisine
+  ) aggregated
+) ranked
+ORDER BY country, rank_in_country;
+USE default;
+DROP TABLE IF EXISTS datasource3;
+DROP TABLE IF EXISTS datasource4;
+CREATE EXTERNAL TABLE datasource3 (
+  restaurant_id STRING,
+  payment_type STRING,
+  total_orders INT,
+  avg_total_price DOUBLE
+)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY '\t'
+STORED AS TEXTFILE
+LOCATION '${hiveconf:input_dir3}';
+CREATE EXTERNAL TABLE datasource4 (
+  restaurant_id STRING,
+  name STRING,
+  city STRING,
+  country STRING,
+  cuisine STRING
+)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ','
+STORED AS TEXTFILE
+LOCATION '${hiveconf:input_dir4}'
+TBLPROPERTIES ("skip.header.line.count"="1");
+INSERT OVERWRITE DIRECTORY '${hiveconf:output_dir6}'
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY '\t'
+SELECT
+  concat(
+    '{"country":"', regexp_replace(country, '"', ''), '",',
+    '"cuisine":"', regexp_replace(cuisine, '"', ''), '",',
+    '"total_orders":', CAST(total_orders AS STRING), ',',
+    '"avg_total_price":', CAST(avg_total_price AS STRING), ',',
+    '"rank_in_country":', CAST(rank_in_country AS STRING), '}'
+  ) AS json_output
+FROM (
+  SELECT
+    country,
+    cuisine,
+    total_orders,
+    avg_total_price,
+    ROW_NUMBER() OVER (PARTITION BY country ORDER BY total_orders DESC) AS rank_in_country
+  FROM (
+    SELECT
+      r.country,
+      r.cuisine,
+      SUM(s.total_orders) AS total_orders,
+      ROUND(
+        SUM(s.total_orders * s.avg_total_price) / SUM(s.total_orders),
+        2
+      ) AS avg_total_price
+    FROM datasource3 s
+    INNER JOIN datasource4 r ON s.restaurant_id = r.restaurant_id
+    GROUP BY r.country, r.cuisine
+  ) aggregated
+) ranked
+ORDER BY country, rank_in_country;
+DROP TABLE food_orders_ext;
+DROP TABLE restaurants_ext;
+DROP VIEW cuisines;
+DROP VIEW cuisines_ranked;
+CREATE EXTERNAL TABLE IF NOT EXISTS food_orders_ext (
+    restaurant_id STRING, 
+    payment_type STRING, 
+    avg_total_price FLOAT,
+    orders_count INT
+)
+COMMENT "food orders"
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY "\t"
+STORED AS TEXTFILE
+location '${hiveconf:input_dir3}';
+CREATE EXTERNAL TABLE IF NOT EXISTS restaurants_ext (
+    restaurant_id STRING,
+    name STRING,
+    city STRING,
+    country STRING, 
+    cuisine STRING
+)
+COMMENT "restaurants"
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ","
+STORED AS TEXTFILE
+location '${hiveconf:input_dir4}';
+CREATE VIEW IF NOT EXISTS cuisines as
+    SELECT  r.country as country, r.cuisine as cuisine, sum(f.orders_count) as total_orders, avg(f.avg_total_price) as avg_total_price
+    FROM    restaurants_ext r inner join food_orders_ext f on r.restaurant_id == f.restaurant_id group by r.country, r.cuisine;
+CREATE TABLE cuisines_ranked(
+    country STRING,
+    cuisine STRING,
+    total_orders INT,
+    avg_total_price FLOAT,
+    rank_in_country INT
+)
+COMMENT "final stats"
+ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.JsonSerDe'
+STORED AS TEXTFILE
+location '${hiveconf:output_dir6}';
+INSERT OVERWRITE TABLE cuisines_ranked
+    SELECT country, cuisine, total_orders, avg_total_price, rank() over (partition by country order by total_orders desc) as rank_in_country FROM cuisines;
+select * from cuisines_ranked;
+DROP TABLE food_orders_ext;
+DROP TABLE restaurants_ext;
+DROP VIEW cuisines;
+DROP VIEW cuisines_ranked;
+DROP TABLE food_orders_ext;
+DROP TABLE restaurants_ext;
+DROP VIEW cuisines;
+DROP VIEW cuisines_ranked;

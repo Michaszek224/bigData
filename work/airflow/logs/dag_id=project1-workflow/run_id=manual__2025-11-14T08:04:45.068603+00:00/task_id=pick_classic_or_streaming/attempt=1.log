@@ -1,0 +1,14 @@
+{"timestamp":"2025-11-14T08:04:53.563121Z","level":"info","event":"DAG bundles loaded: dags-folder, example_dags","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager","filename":"manager.py","lineno":179}
+{"timestamp":"2025-11-14T08:04:53.564464Z","level":"info","event":"Filling up the DagBag from /home/hadoop/airflow/dags/projekt1.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-11-14T08:04:53.652967Z","level":"info","event":"Task instance is in running state","logger":"task.stdout"}
+{"timestamp":"2025-11-14T08:04:53.653278Z","level":"info","event":" Previous state of the Task instance: TaskInstanceState.QUEUED","logger":"task.stdout"}
+{"timestamp":"2025-11-14T08:04:53.661494Z","level":"info","event":"Current task name:pick_classic_or_streaming","logger":"task.stdout"}
+{"timestamp":"2025-11-14T08:04:53.661712Z","level":"info","event":"Dag name:project1-workflow","logger":"task.stdout"}
+{"timestamp":"2025-11-14T08:04:53.666133Z","level":"info","event":"Done. Returned value was: hadoop_streaming","logger":"airflow.task.operators.airflow.providers.standard.operators.python.BranchPythonOperator","filename":"python.py","lineno":218}
+{"timestamp":"2025-11-14T08:04:53.666386Z","level":"info","event":"Branch into hadoop_streaming","logger":"airflow.task.operators.airflow.providers.standard.operators.python.BranchPythonOperator","filename":"branch.py","lineno":44}
+{"timestamp":"2025-11-14T08:04:53.667047Z","level":"info","event":"Following branch {'hadoop_streaming'}","logger":"airflow.task.operators.airflow.providers.standard.operators.python.BranchPythonOperator","filename":"skipmixin.py","lineno":152}
+{"timestamp":"2025-11-14T08:04:53.667375Z","level":"info","event":"Skipping tasks [('mapreduce_classic', -1)]","logger":"airflow.task.operators.airflow.providers.standard.operators.python.BranchPythonOperator","filename":"skipmixin.py","lineno":191}
+{"timestamp":"2025-11-14T08:04:53.699032Z","level":"info","event":"Skipping downstream tasks.","logger":"task","filename":"task_runner.py","lineno":935}
+{"timestamp":"2025-11-14T08:04:53.782087Z","level":"info","event":"Task instance in success state","logger":"task.stdout"}
+{"timestamp":"2025-11-14T08:04:53.782307Z","level":"info","event":" Previous state of the Task instance: TaskInstanceState.RUNNING","logger":"task.stdout"}
+{"timestamp":"2025-11-14T08:04:53.791283Z","level":"info","event":"Task operator:<Task(BranchPythonOperator): pick_classic_or_streaming>","logger":"task.stdout"}

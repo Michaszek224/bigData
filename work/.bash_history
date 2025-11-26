@@ -1,192 +1,3 @@
-cat /home/hadoop/data/datasource1/orders00.csv | python3 /home/hadoop/mapper.py | sort | python3 /home/hadoop/reducer.py | head
-ls
-cat reducer.py 
-cat /home/hadoop/data/datasource1/orders00.csv | python3 /home/hadoop/mapper.py | sort | python3 /home/hadoop/reducer.py > /tmp/test_output.txt
-head /tmp/test_output.txt
-hdfs dfs -rm -r -f /output/datasource3
-hadoop jar $HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming*.jar   -input /input/datasource1   -output /output/datasource3   -mapper /home/hadoop/mapper.py   -reducer /home/hadoop/reducer.py   -files /home/hadoop/mapper.py,/home/hadoop/reducer.py
-cd /home/hadoop/
-ls
-chmod +x mapper.py reducer.py 
-hadoop jar $HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming*.jar   -input /input/datasource1   -output /output/datasource3   -mapper /home/hadoop/mapper.py   -reducer /home/hadoop/reducer.py   -files /home/hadoop/mapper.py,/home/hadoop/reducer.py
-hadoop jar $HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming*.jar   -input /input/datasource1   -output /output/datasource3   -mapper /home/hadoop/mapper.py   -reducer /home/hadoop/reducer.py   -files /home/hadoop/mapper.py,/home/hadoop/reducer.py
-hadoop jar $HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming*.jar   -input /input/datasource1   -output /output/datasource3   -mapper /home/hadoop/mapper.py   -reducer /home/hadoop/reducer.py   -file /home/hadoop/mapper.py   -file /home/hadoop/reducer.py
-hdfs dfs -cat /output/datasource3/part-00000 | head
-hdfs dfs -cat /output/datasource3/part-* | wc -l
-chmod +x run_mr.sh 
-ls
-./run_mr.sh
-./run_mr.sh datasource1 datasource3
-./run_mr.sh
-chmod +x run_mr.sh 
-./run_mr.sh datasource1 datasource3
-chmod +x run_mr.sh 
-./run_mr.sh datasource1 datasource3
-chmod +x run_mr.sh 
-./run_mr.sh datasource1 datasource3
-chmod +x run_mr.sh 
-./run_mr.sh datasource1 datasource3
-hdfs dfs -cat /output/datasource3/part-00000 | head
-hdfs dfs -cat /output/datasource3/part-* | wc -l
-chmod +x run_mr.sh 
-./run_mr.sh datasource1 datasource3
-chmod +x reducer.py combiner.py mapper.py 
-chmod +x run_mr.sh 
-./run_mr.sh datasource1 datasource3
-chmod +x reducer.py combiner.py mapper.py 
-./run_mr.sh datasource1 datasource3
-./run_mr.sh datasource1 datasource3
-hdfs dfs -cat /input/datasource1/order0.csv | head -5
-hdfs dfs -cat /input/datasource1/order00.csv | head -5
-hdfs dfs -cat /input/ | head -5
-hdfs dfs -ls /input/ | head -5
-hdfs dfs -ls /input/datasource1 | head -5
-hdfs dfs -head /input/datasource1/orders00.csv | head -5
-chmod +x mapper.py reducer.py combiner.py 
-ls
-./run_mr.sh datasource1 datasource3
-chmod +x run_mr.sh 
-./run_mr.sh datasource1 datasource3
-chmod +x run_mr.sh 
-./run_mr.sh datasource1 datasource3
-hdfs dfs -cat /output/datasource3/part-00000 | head
-hdfs dfs -cat /output/datasource3/part-00000 | head
-hdfs dfs -cat /output/datasource3/part-00000
-./run_mr.sh datasource1 datasource3
-./run_mr.sh datasource1 datasource3
-hdfs dfs -cat /input/datasource3/part-00000 | head -20 | python3 mapper.py
-hdfs dfs -cat /output/datasource3/part-00000 | head -20 | python3 mapper.py
-chmod +x reducer.py mapper.py combiner.py 
-./run_mr.sh datasource1 datasource3
-chmod +x reducer.py 
-./run_mr.sh datasource1 datasource3
-chmod +x mapper.py
-chmod +x combiner.py
-chmod +x reducer.py
-./run_mr.sh datasource1 datasource3
-hdfs dfs -cat /output/datasource3/part-00000 | head
-chmod +x run_mr.sh 
-./run_mr.sh datasource1 datasource3
-hdfs dfs -cat /output/datasource3/part-00000 | head
-chmod +x mapper.py combiner.py reducer.py 
-./run_mr.sh datasource1 datasource3
-hdfs dfs -cat /output/datasource3/part-00000 | head
-chmod +x mapper.py combiner.py reducer.py 
-./run_mr.sh datasource1 datasource3
-hdfs dfs -cat /output/datasource3/part-00000 | head
-hdfs dfs -cat /output/datasource3/part-00000
-./run_mr.sh datasource1 datasource3
-hdfs dfs -cat /output/datasource3/part-00000
-exit
-hdfs dfs -cat /output/datasource3/part-00000
-exit
-hdfs dfs -ls /
-hdfs dfs -ls /input
-exit
-hdfs dfs -ls /
-hdfs dfs -ls /input
-hdfs dfs -mv /input/datasource1 /
-hdfs dfs -ls /
-hdfs dfs -ls /input
-hdfs dfs -rm -r  /input
-hdfs dfs -ls  /
-hdfs dfs -ls  /datasource1
-hdfs dfs -ls  /
-hdfs dfs -ls  /output
-hdfs dfs -mv  /output/datasource3 .
-hdfs dfs -ls  /
-hdfs dfs -ls  /output
-hdfs dfs -ls  /user
-hdfs dfs -ls  /user/hadoop
-hdfs dfs -mv  /user/hadoop/datasource3 /
-hdfs dfs -ls /
-hdfs dfs -ls /datasource1
-hdfs dfs -ls /datasource2
-hdfs dfs -ls /datasource3
-./run_mr.sh datasource1 datasource3
-hdfs dns -ls /
-hdfs dfs -ls /datasource2
-hdfs dfs -ls /
-hdfs dfs -ls /datasource3
-ls
-ls data
-unzip zestaw15.zip 
-ls
-cd input/
-ls
-mv datasource ..
-ls
-mv datasource ..
-ls
-mv datasource4 ..
-ls
-cd ..
-ls
-rm -r data
-rm zestaw15.zip 
-ls
-cd datasource4/
-ls
-nvim restaurants.csv 
-vi restaurants.csv 
-catr restaurants.csv 
-cat restaurants.csv 
-:q!
-cd ..
-ls
-rm -r input/
-ls
-hdfs dfs -mv datasource4/ /
-hdfs dfs -mv .datasource4/ /
-hdfs dfs -mv ./datasource4/ /
-hadoop fs -put datasource4/ /
-hdfs dfs -ls /
-hdfs dfs -ls /datasource4
-hdfs dfs -ls /datasource3
-hdfs dfs -ls /datasource1
-hdfs dfs -ls /datasource4
-hdfs dfs -ls /
-hdfs dfs -ls /output
-hdfs dfs -rm -r /output
-hdfs dfs -ls /
-exit
-hdfs dfs -ls /
-hdfs dfs -ls /datasource3
-hdfs dfs -ls /datasource4
-exit
-hdfs dfs -ls /datasource3
-hdfs dfs -cat /datasource3/part-00000
-hdfs dfs -cat /datasource4/
-hdfs dfs -ls /datasource4/
-hdfs dfs -cat /datasource4/restourants.csv
-hdfs dfs -cat /datasource4/restaurants.csv
-hdfs dfs -cat /datasource4/restaurants.csv | head
-hdfs dfs -ls /datasource3
-hdfs dfs -ls -la /datasource3
-hdfs dfs -lsa /datasource3
-hdfs dfs -ls /datasource3
-hdfs dfs -cat /datasource3/part-00000
-exit
-ls
-chmod +x hive.hql 
-chmod +x run_hive.sh 
-hdfs dfs -ls /
-./run_hive.sh datasource3 datasource4 datasource6
-hdfs dfs -ls /
-./run_hive.sh 
-tree
-ls
-cd ..
-ls
-cd hadoop/
-chmod +x run_hive.sh 
-./run_hive.sh datasource3 datasource4 datasource6
-./run_hive.sh /datasource3 /datasource4 /datasource6
-hdfs fds -ls /
-hdfs dfs -ls /
-./run_hive.sh datasource3 datasource4 datasource6
-./run_mr.sh datasource1 datasource3
-hdfs dfs -ls /
 hdfs dfs -ls /datasource1
 hdfs dfs -ls /datasource3
 hdfs dfs -ls /datasource4
@@ -497,4 +308,193 @@ hdfs dfs -cat /datasource3/part-00000
 hdfs dfs -ls /datasource6
 hdfs dfs -cat /datasource6/000000_0
 clear
+exit
+exit
+source ~/.venv/bin/activate
+ls
+airflow standalone
+source ~/.venv/bin/activate
+python --version
+export AIRFLOW_HOME=~/airflow
+export AIRFLOW_VERSION=3.1.0
+export AIRFLOW__CORE__LOAD_EXAMPLES=False
+export PYTHON_VERSION="$(python -c 'import sys; \
+print(f"{sys.version_info.major}.{sys.version_info.minor}")')"
+export CONSTRAINT_URL="https://raw.githubusercontent.com/apache/airflow/\
+constraints-${AIRFLOW_VERSION}/constraints-${PYTHON_VERSION}.txt"
+export PATH=$PATH:~/.local/bin
+curl -LsSf https://astral.sh/uv/install.sh | sh
+uv venv
+uv pip install "apache-airflow==${AIRFLOW_VERSION}" --constraint "${CONSTRAINT_URL}"
+sourcec ~/.venv/bin/activate
+source ~/.venv/bin/activate
+airflow db migrate
+sed -i 's/^refresh_interval\s*=.*/refresh_interval = 15/' ./airflow/airflow.cfg
+airflow standalone
+exit
+head ~/airflow/simple_auth_manager_passwords.json.generated
+hdfs dfs -ls /
+ls
+hdfs dfs -put datasource1 /
+hdfs dfs -put datasource4 /
+exit
+wget http://www.cs.put.poznan.pl/kjankiewicz/bigdata/projekty/test2025-01/zestaw15.zip
+ls
+unzip zestaw15.zip 
+ls
+cd input/
+ls
+cd ..
+hadoop dfs -put input /tmp/
+ls
+hdfs dfs -ls /
+hdfs dfs -ls /tmp
+hdfs dfs -ls /tmp/input
+hdfs dfs -ls /tmp/input/datasource1
+hdfs dfs -ls /tmp/input/datasource4
+hdfs dfs -cat /tmp/input/datasource4/orders39.csv
+hdfs dfs -cat /tmp/input/datasource1/orders39.csv
+hdfs dfs -ls /tmp/input/datasource4
+hdfs dfs -cat /tmp/input/datasource4/restaurants.csv
+ls
+unzip dags.zip 
+ls
+ls
+rm datasource1
+rm -r datasource1
+rm -r datasource4/
+ls
+rm projekt1.py 
+rm reducer.py 
+rm mapper.py 
+rm run_*
+ls
+rm hive
+rm hive.hql 
+rm hive_run.log 
+ls
+cd dags
+ls
+cd project_files/
+ls
+cd ..
+ls
+c d..
+ls
+cd project_files/
+ls
+mv projekt1.py ..
+ls
+cd ..
+ls
+cd ..
+ls
+cd airflow/
+ls
+cd dags/
+ls
+cd ..
+lss
+cd ..
+rm -r airflow/
+ls
+mkdir airflow/
+ls
+mv dags airflow/
+ls
+ls
+cd airflow/
+ls
+airflow db migrate
+ls
+cd ..
+ls
+cd airflow/
+ls
+cd dags
+ls
+cd ..
+c d..
+cd ..
+cd ..
+cd ..
+cd ..
+ls
+cd home
+ls
+cd hadoop/
+ls
+cd ..
+cd ..
+ls
+cd tmp
+ls
+cd /hadoop
+cd ..
+ls
+cd ..
+cd home/hadoop/
+ls
+ls
+cd airflow/
+ls
+cd dags/
+ls
+cd proje
+cd ..
+cd ..
+ls
+cd airflow/
+ls
+ls
+cd dags/
+ls
+ls
+hdfs dfs -ls /
+hdfs dfs -ls /proc/
+hdfs dfs -ls /project1/
+
+hdfs dfs -ls /tmp
+hdfs dfs -ls /tmp/hive
+hdfs dfs -ls /project1/output_mr3
+hdfs dfs -cat /project1/output_mr3/part-00000
+hdfs dfs -cat /project1/output_mr3/part-00000 -head 1
+hdfs dfs -cat /project1/output_mr3/part-00000 | head -n 1
+hdfs dfs -cat /project1/output_mr3/part-00001 | head -n 1
+hdfs dfs -cat /project1/output_mr3/part-00002 | head -n 1
+exit
+wget https://sherlock-holm.es/stories/plain-text/cano.txt
+wget https://jankiewicz.pl/bigdata/spark/cano.txt
+hadoop fs -mkdir -p .
+hadoop fs -copyFromLocal cano.txt .
+hadoop fs -ls /
+hadoop fs -ls .
+pyspark
+pyspark --master local[2]
+ls
+ls
+spark-submit --master local sparkWordCount.py file:///home/hadoop/cano.txt b.*b
+park-submit --master yarn --driver-memory 3g --executor-memory 3g --executor-cores 1 --num-executors 2 sparkWordCount.py cano.txt c.*c
+spark-submit --master yarn --driver-memory 3g --executor-memory 3g --executor-cores 1 --num-executors 2 sparkWordCount.py cano.txt c.*c
+exit
+wget https://jankiewicz.pl/bigdata/bigdata-sp/cano-pdf.zip
+wget https://jankiewicz.pl/bigdata/bigdata-sp/cano-list.csv
+unzip cano-pdf.zip
+pip show PyPDF2
+pip install PyPDF2
+pip show PyPDF2
+python
+hadoop fs -put cano-pdf /tmp/
+hadoop fs -put cano-list.csv /tmp/
+pyspark --master local[*]
+ls
+spark-submit --master yarn --driver-memory 3g --executor-memory 3g --executor-cores 1 --num-executors 2 python.py
+spark-submit --master yarn --driver-memory 3g --executor-memory 3g --executor-cores 1 --num-executors 2 python.py
+spark-submit --master yarn --driver-memory 3g --executor-memory 3g --executor-cores 1 --num-executors 2 python.py
+spark-submit --master yarn --driver-memory 3g --executor-memory 3g --executor-cores 1 --num-executors 2 python.py
+spark-submit --master yarn --driver-memory 3g --executor-memory 3g --executor-cores 1 --num-executors 2 python.py
+spark-submit --master yarn --driver-memory 3g --executor-memory 3g --executor-cores 1 --num-executors 2 python.py
+pyspark --master local[*]
+pip show PyPDF2
+pyspark --master local[*]
 exit

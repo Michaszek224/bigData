@@ -1,28 +1,37 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 import sys
 
-current_key = None
-total_sum = 0.0
-total_count = 0
+
+RESTAURANT_ID_COL : int = 0
+PAYMENT_TYPE_COL : int = 1
+PRICE_COL : int = 2
+ITEM_COUNT_COL: int = 3
+
+current_restaurant = None
+current_paytype = None
+current_total_price = 0
+current_orders_count = 0
+current_item_count = 0
+
 
 for line in sys.stdin:
-    parts = line.strip().split("\t")
-    if len(parts) != 3:
-        continue
-    
-    composite_key, total_price, count = parts
-    total_price = float(total_price)
-    count = int(count)
-    
-    if current_key == composite_key:
-        total_sum += total_price
-        total_count += count
-    else:
-        if current_key:
-            print(f"{current_key}\t{total_sum}\t{total_count}")
-        current_key = composite_key
-        total_sum = total_price
-        total_count = count
+    restaurant_paytype, price_item_count = line.split("\t")
 
-if current_key:
-    print(f"{current_key}\t{total_sum}\t{total_count}")
+    restaurant, paytype = restaurant_paytype.split(",")
+    price, item_count = price_item_count.split(",")
+
+
+    if restaurant == current_restaurant and paytype == current_paytype:
+        current_total_price += float(price)
+        current_item_count += int(item_count)
+        current_orders_count += 1
+    else:
+        if current_restaurant and current_paytype:
+            print(f"{current_restaurant},{current_paytype}\t{current_total_price},{current_orders_count},{current_item_count}")
+        
+        current_restaurant = restaurant
+        current_paytype = paytype
+        
+        current_orders_count = 1
+        current_item_count = int(item_count)
+        current_total_price = float(price)

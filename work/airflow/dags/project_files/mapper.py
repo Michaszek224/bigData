@@ -1,17 +1,19 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 import sys
-import csv
 
-reader = csv.reader(sys.stdin)
-next(reader, None)
+RESTAURANT_ID_COL : int = 1
+ITEM_COUNT_COL: int = 3
+PRICE_COL : int = 4
+PAYMENT_TYPE_COL : int = 5
+header = "order_id,restaurant_id,order_date,items_count,total_price_usd,payment_type,status"
+for line in sys.stdin:
+    if header in line:
+        continue
+    line.strip()
+    values = line.split(",")
+    restaurant_id = values[RESTAURANT_ID_COL]
+    pay_type = values[PAYMENT_TYPE_COL]
+    count = values[ITEM_COUNT_COL]
+    price = values[PRICE_COL]
 
-for row in reader:
-    if len(row) >= 6 and row[4] and row[5]:
-        restaurant_id = row[1]
-        payment_type = row[5]
-        try:
-            total_price = float(row[4])
-            composite_key = f"{restaurant_id}|{payment_type}"
-            print(f"{composite_key}\t{total_price}\t1")
-        except ValueError:
-            continue
+    print(f"{restaurant_id},{pay_type}\t{price},{count}")
