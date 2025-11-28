@@ -1,56 +1,3 @@
-hdfs dfs -ls /datasource1
-hdfs dfs -ls /datasource3
-hdfs dfs -ls /datasource4
-chmod +x run_hive.sh 
-./run_hive.sh datasource3 datasource4 datasource6
-hdfs dfs -ls /
-hdfs dfs -lsa /
-hdfs dfs -chmod 777 /
-./run_hive.sh datasource3 datasource4 datasource6
-jps
-jps | grep HiveServer2
-sudo systemctl status hive-server2
-  sudo service hive-server2 status
-beeline -u "jdbc:hive2://localhost:10000/default" -e "SHOW DATABASES;"
-chmod +x run_hive.sh 
-./run_hive.sh datasource3 datasource4 datasource6
-chmod +x run_hive.sh 
-./run_hive.sh datasource3 datasource4 datasource6
-hdfs fds -ls /
-hdfs dfs -ls /
-hdfs dfs -ls /datasource6
-./run_hive.sh datasource3 datasource4 datasource6
-beeline -u "jdbc:hive2://localhost:10000/default"   -n hadoop   --hiveconf input_dir3="/datasource3"   --hiveconf input_dir4="/datasource4"   -f /home/hadoop/hive_debug.hql
-rm hive.hql 
-./run_hive.sh datasource3 datasource4 datasource6
-ls
-hdfs fds -ls /
-hdfs dfs -ls /
-hdfs dfs -ls /datasource6
-hdfs dfs -rm -r  /datasource6
-./run_hive.sh datasource3 datasource4 datasource6
-hdfs dfs -ls /datasource6
-hdfs dfs -ls /datasource6
-hdfs dfs -ls /
-# 1. Sprawdź czy skrypt się w ogóle wykonuje
-./run_hive.sh datasource3 datasource4 datasource6 2>&1 | tee hive_run.log
-# 2. Jeśli skrypt się wykonał, sprawdź logi
-tail -50 hive_run.log
-# 3. Sprawdź czy folder datasource6 istnieje (może być pusty)
-hdfs dfs -ls / | grep datasource
-# 4. Sprawdź czy tabela restaurants została utworzona
-beeline -u "jdbc:hive2://localhost:10000/default" -n hadoop -e "
-SHOW TABLES;
-SELECT COUNT(*) FROM restaurants;
-SELECT * FROM restaurants LIMIT 5;
-"
-# 1. Usuń wszystkie tabele i wyczyść metadane
-beeline -u "jdbc:hive2://localhost:10000/default" -n hadoop -e "
-DROP TABLE IF EXISTS restaurants;
-DROP TABLE IF EXISTS restaurants_raw;
-DROP TABLE IF EXISTS datasource3;
-"
-# 2. Upewnij się że używasz nowego skryptu hive.hql
 cat /home/hadoop/hive.hql | grep -A5 "restaurants_raw"
 # 3. Jeśli nie widzisz restaurants_raw, skopiuj nową wersję
 cat /home/hadoop/hive.hql | grep -A5 "restaurants_raw"
@@ -497,4 +444,57 @@ spark-submit --master yarn --driver-memory 3g --executor-memory 3g --executor-co
 pyspark --master local[*]
 pip show PyPDF2
 pyspark --master local[*]
+exit
+ls
+pip show PyPDF2
+pip install PyPDF2
+pip show PyPDF2
+python
+hadoop fs -put cano-pdf /tmp/
+hadoop fs -put cano-list.csv /tmp/
+pyspark --master local[*]
+ls
+spark-submit --master local[*] python.py
+hdfs dfs -ls /
+hdfs dfs -ls /tmp
+hdfs dfs -ls /tmp/cano-pdf
+spark-submit --master local[*] python.py
+spark-submit --master local[*] python.py
+spark-submit --master local[*] python.py
+spark-submit --master local[*] python.py
+spark-submit --master local[*] watson_count.py
+spark-submit --master local[*] watson_count.py
+spark-submit --master local[*] watson_count.py
+spark-submit --master local[*] word_count.py
+spark-submit --master local[*] metrics.py
+spark-submit --master local[*] metrics.py
+spark-submit --master local[*] title.py
+spark-submit --master local[*] metrics.py
+spark-submit --master local[*] metrics.py
+spark-submit --master local[*] metrics.py
+spark-submit --master local[*] metrics.py
+exit
+ls
+spark-submit --master local[*] word_count.py 
+pip install PyPDF2
+spark-submit --master local[*] word_count.py 
+spark-submit --master local[*] word_count.py 
+hadoop fs -put cano-list.csv /tmp/
+hadoop fs -put cano-pdf /tmp/
+spark-submit --master local[*] word_count.py 
+ls
+spark-submit --master local[*] watson_count.py 
+ls
+spark-submit --master local[*] metrics.py 
+exit
+ls
+ls
+pip install PyPDF2
+hadoop fs -put cano-list.csv /tmp/
+hadoop fs -put cano-pdf /tmp/
+spark-submit --master local[*] word_count.py 
+ls
+spark-submit --master local[*] watson_count.py 
+ls
+spark-submit --master local[*] metrics.py 
 exit
