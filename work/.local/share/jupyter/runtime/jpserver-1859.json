@@ -2,7 +2,7 @@
   "base_url": "/",
   "hostname": "0.0.0.0",
   "password": false,
-  "pid": 1828,
+  "pid": 1859,
   "port": 8888,
   "root_dir": "/home/hadoop/notebooks",
   "secure": false,

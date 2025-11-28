@@ -1,0 +1,13 @@
+{
+  "shell_port": 56825,
+  "iopub_port": 49909,
+  "stdin_port": 59589,
+  "control_port": 39303,
+  "hb_port": 39779,
+  "ip": "127.0.0.1",
+  "key": "64722407-e8a3a64ab14f50190ec60743",
+  "transport": "tcp",
+  "signature_scheme": "hmac-sha256",
+  "kernel_name": "python3",
+  "jupyter_session": "/home/hadoop/notebooks/pyspark.ipynb"
+}
