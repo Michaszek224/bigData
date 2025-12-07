@@ -1,26 +1,3 @@
-cat /home/hadoop/hive.hql | grep -A5 "restaurants_raw"
-# 3. Jeśli nie widzisz restaurants_raw, skopiuj nową wersję
-cat /home/hadoop/hive.hql | grep -A5 "restaurants_raw"
-./run_hive.sh datasource3 datasource4 datasource6
-cat > /home/hadoop/hive.hql << 'EOF'
--- hive.hql
--- Skrypt Hive łączący dane o zamówieniach z restauracjami
--- Parametry: input_dir3, input_dir4, output_dir6
-USE default;
-
--- Usuń poprzednie definicje
-DROP TABLE IF EXISTS datasource3;
-DROP TABLE IF EXISTS restaurants;
-DROP TABLE IF EXISTS restaurants_raw;
-
--- 1) Dane z MapReduce (input_dir3)
--- Format: restaurant_id, payment_type, total_orders, avg_total_price
-CREATE EXTERNAL TABLE datasource3 (
-  restaurant_id STRING,
-  payment_type STRING,
-  total_orders INT,
-  avg_total_price DOUBLE
-)
 ROW FORMAT DELIMITED
 FIELDS TERMINATED BY '\t'
 STORED AS TEXTFILE
@@ -497,4 +474,27 @@ ls
 spark-submit --master local[*] watson_count.py 
 ls
 spark-submit --master local[*] metrics.py 
+exit
+head ign.csv
+ls
+ls
+rm ign.csv
+wget https://jankiewicz.pl/bigdata/bigdata-sp/ign.csv
+wget https://jankiewicz.pl/bigdata/bigdata-sp/mondial.countries.json
+wget https://jankiewicz.pl/bigdata/bigdata-sp/mondial.cities.json
+ls
+hadoop fs -mkdir -p .
+hadoop fs -l /
+hadoop fs -ls /
+hadoop fs -ls /user
+hadoop fs -ls /tmp
+hadoop fs -mkdir -p .
+hadoop fs -ls
+hadoop fs -copyFromLocal ign.csv .
+hadoop fs -copyFromLocal mondial.countries.json .
+hadoop fs -copyFromLocal mondial.cities.json .
+hadoop fs -ls
+hadoop fs -ls /user
+hadoop fs -ls /user/hadoop
+exit
 exit
