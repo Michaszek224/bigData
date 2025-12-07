@@ -1,0 +1,56 @@
+# Python compilation and environments
+__pycache__/
+*.pyc
+.venv/
+venv/
+env/
+
+# OS generated files
+.DS_Store
+.Trashes
+
+# Logs
+*.log
+logs/
+
+# Spark / Hadoop / Hive
+metastore_db/
+derby.log
+spark-warehouse/
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# IDEs
+.vscode/
+.idea/
+
+# Project specific generated files and caches in work/
+work/.cache/
+work/.local/
+work/.venv/
+work/.ivy2.5.2/
+work/.beeline/
+work/.config/
+work/.ipython/
+work/.jupyter/
+
+# Airflow generated files
+work/airflow/logs/
+work/airflow/airflow.db
+work/airflow/*.generated
+
+# Large data files
+*.zip
+*.tar
+*.gz
+*.jar
+*.pdf
+
+# CSV files can be large, ignoring them is safer for Big Data repos
+# You can force add specific configuration CSVs if needed with 'git add -f'
+*.csv
+
+# Specific large directories
+work/notebooks/rates/
+work/cano-pdf/

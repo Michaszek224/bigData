@@ -1,19 +1,3 @@
-ROW FORMAT DELIMITED
-FIELDS TERMINATED BY '\t'
-STORED AS TEXTFILE
-LOCATION '${hiveconf:input_dir3}';
-
--- 2) Dane surowe z CSV (bez parsowania nagłówka przez SerDe)
-CREATE EXTERNAL TABLE restaurants_raw (
-  line STRING
-)
-STORED AS TEXTFILE
-LOCATION '${hiveconf:input_dir4}';
-
--- 3) Parsowanie CSV ręcznie i pomijanie nagłówka
-CREATE TABLE restaurants AS
-SELECT
-  split(line, ',')[0] AS restaurant_id,
   regexp_replace(split(line, ',')[1], '"', '') AS name,
   regexp_replace(split(line, ',')[2], '"', '') AS city,
   regexp_replace(split(line, ',')[3], '"', '') AS country,
@@ -497,4 +481,20 @@ hadoop fs -ls
 hadoop fs -ls /user
 hadoop fs -ls /user/hadoop
 exit
+exit
+wget https://jankiewicz.pl/bigdata/bigdata-ss/DeltaLake/DeltaLake1.csv
+wget https://jankiewicz.pl/bigdata/bigdata-ss/DeltaLake/DeltaLake2.csv
+wget https://jankiewicz.pl/bigdata/bigdata-ss/DeltaLake/DeltaLake3.csv
+hadoop fs -mkdir -p /tmp/DeltaLakeSourceData
+hadoop fs -copyFromLocal *.csv /tmp/DeltaLakeSourceData
+pyspark --version
+ls
+hdfs dfs -ls /
+hdfs dfs -ls /tmp
+hdfs dfs -ls /tmp/delta-table2
+hdfs dfs -ls /tmp/DeltaLakeSourceData
+hdfs dfs -cat /tmp/DeltaLakeSourceData/DeltaLake1.csv
+hdfs dfs -ls /tmp/DeltaLakeSourceData
+hdfs dfs -rm /tmp/DeltaLakeSourceData/ign.csv
+hdfs dfs -rm /tmp/DeltaLakeSourceData/cano-list.csv
 exit
