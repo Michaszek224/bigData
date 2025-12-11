@@ -1,58 +1,3 @@
-  regexp_replace(split(line, ',')[1], '"', '') AS name,
-  regexp_replace(split(line, ',')[2], '"', '') AS city,
-  regexp_replace(split(line, ',')[3], '"', '') AS country,
-  regexp_replace(split(line, ',')[4], '"', '') AS cuisine
-FROM restaurants_raw
-WHERE line NOT LIKE 'restaurant_id,%'  -- Pomiń nagłówek
-  AND length(trim(line)) > 0;          -- Pomiń puste linie
-
--- 4) Wynik: agregacja po kraju i rodzaju kuchni
-INSERT OVERWRITE DIRECTORY '${hiveconf:output_dir6}'
-ROW FORMAT DELIMITED
-FIELDS TERMINATED BY '\t'
-SELECT
-  concat(
-    '{"country":"',   nvl(country,''), '",',
-    '"cuisine":"',    nvl(cuisine,''), '",',
-    '"total_orders":', cast(total_orders as string), ',',
-    '"avg_total_price":', cast(avg_total_price as string), ',',
-    '"rank_in_country":', cast(rank_in_country as string),
-    '}'
-  ) AS json_record
-FROM (
-  WITH joined AS (
-    SELECT
-      r.country,
-      r.cuisine,
-      s.total_orders,
-      s.avg_total_price
-    FROM datasource3 s
-    JOIN restaurants r
-      ON s.restaurant_id = r.restaurant_id
-  ),
-  agg AS (
-    SELECT
-      country,
-      cuisine,
-      SUM(total_orders) AS total_orders,
-      ROUND(SUM(total_orders * avg_total_price) / SUM(total_orders), 2) AS avg_total_price
-    FROM joined
-    GROUP BY country, cuisine
-  ),
-  ranked AS (
-    SELECT
-      country,
-      cuisine,
-      total_orders,
-      avg_total_price,
-      ROW_NUMBER() OVER (PARTITION BY country ORDER BY total_orders DESC) AS rank_in_country
-    FROM agg
-  )
-  SELECT country, cuisine, total_orders, avg_total_price, rank_in_country
-  FROM ranked
-) t
-ORDER BY country, rank_in_country;
-EOF
 
 cat > /home/hadoop/hive.hql << 'EOF'
 -- hive.hql
@@ -497,4 +442,59 @@ hdfs dfs -cat /tmp/DeltaLakeSourceData/DeltaLake1.csv
 hdfs dfs -ls /tmp/DeltaLakeSourceData
 hdfs dfs -rm /tmp/DeltaLakeSourceData/ign.csv
 hdfs dfs -rm /tmp/DeltaLakeSourceData/cano-list.csv
+exit
+hdfs dfs -ls /
+hdfs dfs -ls /tmp
+hdfs dfs -ls /user
+hdfs dfs -ls /user/spark
+hdfs dfs -ls 
+hdfs dfs -ls /
+ls
+cd dane
+ls
+hdfs dfs -put / input
+hdfs dfs -put input /
+hdfs dfs -ls /
+hdfs dfs -ls /input
+hdfs dfs -ls /input/datasource1
+hdfs dfs -ls /input/datasource4
+hdfs dfs -ls /input
+hdfs dfs -ls /input/datasource1
+hdfs dfs -ls /input/datasource4
+hdfs dfs -cat /input/datasource1/order00.csv
+hdfs dfs -cat /input/datasource1/orders00.csv
+hdfs dfs -cat /input/datasource4/orders00.csv | head -n 5
+hdfs dfs -ls /input/datasource4
+hdfs -dfs -cat /input/datasource4/restourants/csv
+hdfs -dfs -cat /input/datasource4/restourants.csv
+hdfs dfs -ls /input/datasource4
+hdfs dfs -cat /input/datasource4/restourants.csv
+hdfs dfs -cat /input/datasource4/restaurants.csv
+hdfs dfs -cat /input/datasource4/restaurants.csv | head -5
+exit
+ls
+cd notebooks/projekt/
+ls
+hdfs dfs -put input .
+hdfs dfs -put / input
+ls
+hdfs dfs -put input
+hdfs dfs -put input /
+exit
+ls
+cd notebooks/projekt/
+ls
+./put.sh
+chmod +777 put.sh
+./put.sh 
+exit
+cd notebooks/projekt/
+./put.sh 
+ls
+hdfs dfs -ls /
+hdfs dfs -ls /input
+hdfs dfs -ls /input/datasource1
+hdfs dfs -ls /input/datasource4
+hdfs dfs -ls /input
+hdfs dfs -ls /
 exit
