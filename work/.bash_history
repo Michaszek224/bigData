@@ -1,23 +1,3 @@
-
-cat > /home/hadoop/hive.hql << 'EOF'
--- hive.hql
--- Skrypt Hive łączący dane o zamówieniach z restauracjami
--- Parametry: input_dir3, input_dir4, output_dir6
-USE default;
-
--- Usuń poprzednie definicje
-DROP TABLE IF EXISTS datasource3;
-DROP TABLE IF EXISTS restaurants;
-DROP TABLE IF EXISTS restaurants_raw;
-
--- 1) Dane z MapReduce (input_dir3)
--- Format: restaurant_id, payment_type, total_orders, avg_total_price
-CREATE EXTERNAL TABLE datasource3 (
-  restaurant_id STRING,
-  payment_type STRING,
-  total_orders INT,
-  avg_total_price DOUBLE
-)
 ROW FORMAT DELIMITED
 FIELDS TERMINATED BY '\t'
 STORED AS TEXTFILE
@@ -497,4 +477,24 @@ hdfs dfs -ls /input/datasource1
 hdfs dfs -ls /input/datasource4
 hdfs dfs -ls /input
 hdfs dfs -ls /
+exit
+pip install delta-spark==4.0.0
+pip install delta-spark==4.0.0 -i https://pypi.org/simple
+pip install delta-spark==4.0.0 --only-binary :all: --default-timeout=1000
+pip install delta-spark --only-binary=:all:
+exit
+pip install delta-spark --only-binary=:all:
+pip install delta-spark
+pip install delta-spark==4.0.0 -i https://pypi.org/simple
+pip install --only-binary :all: delta-spark
+/opt/spark/bin/spark-submit --version
+pip install --only-binary :all: delta-spark=4.0.0
+pip install --only-binary :all: delta-spark==4.0.0
+pip install --only-binary :all: delta-spark==4.0.0
+pip install --no-deps delta-spark==4.0.0
+pip install importlib-metadata
+ls
+cd notebooks/projekt
+ls
+./put.sh 
 exit
